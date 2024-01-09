@@ -16,7 +16,7 @@ number = true;
 
 var num_1 = 5;
 var num_2 = "5";*/
-
+/*
 var num_1 = 5;
 var num_2 = 15;
 
@@ -27,4 +27,11 @@ console.log("Number: " + res);
 console.log("Math: " + Math.PI);
 console.log("Math: " + Math.E);
 console.log("Math: " + Math.min(2, 4, 7, 8, -9));
-console.log("Math: " + Math.max(2, 4, 7, 8, -9));
+console.log("Math: " + Math.max(2, 4, 7, 8, -9));*/
+
+var number = 15;
+
+if(number > 5) {
+    console.log("Ok");
+}
+
