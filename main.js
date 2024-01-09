@@ -20,4 +20,6 @@ var num_2 = "5";*/
 var num_1 = 5;
 var num_2 = 15;
 
-console.log()
+var res = num_1 - num_2;
+
+console.log("Number: " + res);
