@@ -29,9 +29,26 @@ console.log("Math: " + Math.E);
 console.log("Math: " + Math.min(2, 4, 7, 8, -9));
 console.log("Math: " + Math.max(2, 4, 7, 8, -9));*/
 
-var number = 15;
+/*var number = 15;
 
 if(number > 5) {
     console.log("Ok");
+}*/
+
+var stroka = "word23";
+
+switch(stroka) {
+    case "4":
+        console.log("chifre 4");
+        break;
+        case "45":
+        console.log("chifre 45");
+        break;
+        case "word":
+        console.log("chifre word");
+        break;
+     default:
+        console.log("Default");
+        break;
 }
 
