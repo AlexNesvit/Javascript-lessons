@@ -34,7 +34,7 @@ console.log("Math: " + Math.max(2, 4, 7, 8, -9));*/
 if(number > 5) {
     console.log("Ok");
 }*/
-
+/* lesson 6 peremennie
 var stroka = "word23";
 
 switch(stroka) {
@@ -50,5 +50,22 @@ switch(stroka) {
      default:
         console.log("Default");
         break;
-}
+}  */
+
+//lesson 7 massif dannih
+
+var arr = [5, true, "stroka", 5.7, 0, -100];
+    arr[2] = "word";
+    console.log(arr.length);
+
+    var matrix = [
+        [4, 6, 8], ["stroka", 5.7], [0, -100]
+    ];
+
+    matrix[1][0] = 90;
+    console.log(matrix);
+
+
+
+
 
