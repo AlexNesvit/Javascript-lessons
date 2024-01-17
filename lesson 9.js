@@ -1,0 +1,1 @@
+alert("La méteo est exellente.");
