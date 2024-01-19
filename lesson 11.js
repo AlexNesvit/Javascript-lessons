@@ -1,5 +1,6 @@
-
+var counter = 0;
 
 function onClickButton() {
-    alert("Click button");
+   counter++;
+   console.log(counter);
 }
