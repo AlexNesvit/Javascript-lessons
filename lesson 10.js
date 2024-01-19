@@ -34,6 +34,10 @@ function summma(arr) {
 }
 
 var array = [6, 8, 1];
+var array_2 = [6, 8, 1, 7];
+var array_3 = [6, 8, 1, 90];
 
 
 summma(array);
+summma(array_2);
+summma(array_3);
