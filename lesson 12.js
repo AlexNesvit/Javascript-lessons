@@ -41,6 +41,7 @@ function checkForm(el) {
         return false;
     } else {
         alert("Ok");
+     //   window.location = 'http://localhost'; adress cite
         return true;
     }
 }
