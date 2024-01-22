@@ -6,12 +6,30 @@
     <title>Javascript lessons</title>
 </head>
 <body>
-    <button onclick="onClickButton(this)">Press me</button>
-    <p id="text">Text</p>
+    <!-- <button onclick="onClickButton(this)">Press me</button> -->
+    <!-- <p id="text">Text</p> -->
 
-    <span>Text 1</span>
-    <span>Text 2</span>
-    <span>Text 3</span>
+    <form id="main-form">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name" id="name"><br></form>
+        <label for="password">Mot de pass:</label>
+        <input type="password" name="pass" placeholder="Mot de pass" id="pass"><br></br>
+        <label for="repass">Verification mdp:</label>
+        <input type="password" name="repass" placeholder=">Verification mdp" id="repass"><br></br>
+        <span>Sex</span>
+        <input type="radio" name="state" id="male" value="Homme">
+        <label for="male">Homme</label>
+        <input type="radio" name="state" id="female" value="Femme">
+        <label for="female">Femme</label>
+        <input type="button" name="submit" value="Ok">
+        
+       
+    </form>
+
+    <!-- <span class="simple">Text 1</span> -->
+    <!-- <span class="simple">Text 2</span> -->
+    <!-- <span class="simple">Text 3</span> -->
 
 
 
