@@ -9,19 +9,20 @@
     <!-- <button onclick="onClickButton(this)">Press me</button> -->
     <!-- <p id="text">Text</p> -->
 
-    <form id="main-form" onsubmit="checkForm(this)">
+    <form id="main-form" onsubmit="return checkForm(this)" method="post">
 
         <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="Name" id="name"><br></form>
+        <input type="text" name="name" placeholder="Name" id="name"><br></br>
         <label for="password">Mot de pass:</label>
         <input type="password" name="pass" placeholder="Mot de pass" id="pass"><br></br>
         <label for="repass">Verification mdp:</label>
         <input type="password" name="repass" placeholder="Verification mdp" id="repass"><br></br>
-        <span>Sex</span>
+        <span>Sex:</span>
         <input type="radio" name="state" id="male" value="Homme">
         <label for="male">Homme</label>
         <input type="radio" name="state" id="female" value="Femme">
         <label for="female">Femme</label>
+        <span id="error" style="color: red"></span>
         <input type="submit" name="submit" value="Ok">
     </form>
 
