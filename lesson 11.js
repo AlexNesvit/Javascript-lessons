@@ -1,6 +1,7 @@
 var counter = 0;
 
-function onClickButton() {
+function onClickButton(el) {
    counter++;
-   console.log(counter);
+   el.innerHTML = "Vous avez appuer:" + counter;
+   
 }
