@@ -18,3 +18,7 @@ console.log("Counter: " + counter);
 }, 1000);
 */
 
+setTimeout(function() {
+    console.log("Timer is working");
+    
+}, 2000);
