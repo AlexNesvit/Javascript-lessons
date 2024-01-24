@@ -18,14 +18,14 @@
 // copyOfA.c = "abc";
 
 const myCity = {
-    city: "New York"
+    city: "New York",
+    info: {
+        isPopular: true,
+        country: "United States",
+    }
 }
 
-myCity.popular = true;
-console.log(myCity);
+console.log(myCity.info.isPopular);
 
-myCity.country = "USA";
-console.log(myCity);
-
-myCity.city = "La Ciotat";
+delete myCity.info["isPopular"];
 console.log(myCity);
