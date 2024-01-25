@@ -17,15 +17,25 @@
 
 // copyOfA.c = "abc";
 
+// const myCity = {
+//     city: "New York",
+//     info: {
+//         isPopular: true,
+//         country: "United States",
+//     }
+// }
+
+// console.log(myCity.info.isPopular);
+
+// delete myCity.info["isPopular"];
+// console.log(myCity);
+
+
 const myCity = {
     city: "New York",
-    info: {
-        isPopular: true,
-        country: "United States",
+    cityGreeting: function () {
+        console.log("Greetings!!!");
     }
 }
 
-console.log(myCity.info.isPopular);
-
-delete myCity.info["isPopular"];
-console.log(myCity);
+myCity.cityGreeting ();
