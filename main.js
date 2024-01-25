@@ -31,11 +31,20 @@
 // console.log(myCity);
 
 
-const myCity = {
-    city: "New York",
-    cityGreeting: function () {
-        console.log("Greetings!!!");
-    }
-}
+// const myCity = {
+//     city: "New York",
+//     cityGreeting () {
+//         console.log("Greetings!!!");
+//     }
+// }
 
-myCity.cityGreeting ();
+// myCity.cityGreeting ();
+
+
+// const post = {
+//     title: "My post",
+//     likeQty: 5
+// }
+
+// JSON.stringify(post);
+
