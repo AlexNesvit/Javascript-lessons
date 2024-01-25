@@ -48,10 +48,22 @@
 
 // JSON.stringify(post);
 
-const a = 10
-let b = a
 
-console.log (a, b);
-b = 30
+// const a = 10
+// let b = a
 
-console.log(a, b);
+// console.log (a, b);
+// b = 30
+
+// console.log(a, b);
+
+const person = {
+    name: "Bob",
+    age: 21
+}
+
+person.age = 30
+person.inAdult = true
+
+console.log(person.age)
+console.log(person.inAdult);
