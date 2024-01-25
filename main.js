@@ -57,13 +57,14 @@
 
 // console.log(a, b);
 
-const person = {
-    name: "Bob",
-    age: 21
-}
+// const person = {
+//     name: "Bob",
+//     age: 21
+// }
 
-person.age = 30
-person.inAdult = true
+// person.age = 30
+// person.inAdult = true
 
-console.log(person.age)
-console.log(person.inAdult);
+// console.log(person.age)
+// console.log(person.inAdult);
+
