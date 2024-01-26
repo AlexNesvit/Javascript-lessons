@@ -94,6 +94,15 @@
 // console.log(a)
 // console.log(b)
 
-"use strict";
+// "use strict";
+
+let a, b
+
+a = 10
+b = a
+
+let c = a + b
+
+console.log(c) 
 
 
