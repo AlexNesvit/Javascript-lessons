@@ -94,15 +94,17 @@
 // console.log(a)
 // console.log(b)
 
-// "use strict";
+// // "use strict";
 
-let a, b
+// let a, b
 
-a = 10
-b = a
+// a = 10
+// b = a
 
-let c = a + b
+// let c = a + b
 
-console.log(c) 
+// console.log(c) 
+
+
 
 
