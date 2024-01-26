@@ -111,8 +111,22 @@
 // let c
 // c && console.log("Error");
 
+const buttonInfo = {
+    text: "OK",
+    width: 50000
+}
 
+const buttonStyle = {
+    color:"yellow",
+    width: 200,
+    height: 300
+}
 
+const button = {
+    ...buttonStyle,
+    ...buttonInfo
+}
 
+console.log(button)
 
 
