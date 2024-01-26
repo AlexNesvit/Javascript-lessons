@@ -105,6 +105,12 @@
 
 // console.log(c) 
 
+let b = 10
+b && console.log("Ok")
+
+let c
+c && console.log("Error");
+
 
 
 
