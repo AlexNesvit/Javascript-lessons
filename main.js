@@ -105,11 +105,13 @@
 
 // console.log(c) 
 
-let b = 10
-b && console.log("Ok")
+// let b = 10
+// b && console.log("Ok")
 
-let c
-c && console.log("Error");
+// let c
+// c && console.log("Error");
+
+
 
 
 
