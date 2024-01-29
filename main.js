@@ -258,4 +258,24 @@
 //     console.log(i)
 // }
 
+//----while---7:37---
+
+// let i = 0
+
+// while (i<5) {
+//     console.log(i)
+//     i++
+// }
+
+//---do while---7:40---
+
+//----for of---7:54---
+
+// const myString = "Hey"
+
+// for(const letter of myString) {
+//     console.log(letter)
+// }
+
+
 
