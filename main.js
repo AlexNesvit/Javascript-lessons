@@ -213,11 +213,23 @@
 
 //----if, else---6:43--
 
-let val = 10
+// let val = 10
 
-if (val < 5) {
-    val += 20
-} else {
-    val -= 20
+// if (val < 5) {
+//     val += 20
+// } else {
+//     val -= 20
+// }
+// console.log(val)
+
+//----if, else, if -----6:46
+
+const age = 7
+
+if (age >= 18) {
+    console.log("Is adult")
+}   else if (age>= 12){
+    console.log("Is teenager")
+}else {
+    console.log("Is child")
 }
-console.log(val)
