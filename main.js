@@ -137,3 +137,9 @@
 // }
 
 // console.log(myFunction(5, 3));
+
+function multByFactor(value, mltiplier = 1) {
+    return value * mltiplier;
+}
+console.log(multByFactor(10, 2));
+console.log(multByFactor(5));
