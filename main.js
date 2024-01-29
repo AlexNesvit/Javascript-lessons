@@ -152,3 +152,13 @@
 
 // const myArray2 = new Array(1, 2, 3)
 // console.log(myArray2)
+
+
+   ---5:47---
+const myArray = [1, true, "a"]
+console.log(myArray)
+
+console.log(myArray[0])
+console.log(myArray[1])
+
+console.log(myArray.length)
