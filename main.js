@@ -193,3 +193,12 @@
 // myArray.forEach(el => console.log(el * 2))
 // console.log(myArray)
 
+//----MAP---6:13---
+
+// const myArray = [1, 2, 3]
+// console.log(myArray)
+
+// const newArray = myArray.map(el => el * 3)
+// console.log(newArray)
+// console.log(myArray)
+
