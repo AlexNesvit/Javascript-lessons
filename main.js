@@ -154,11 +154,14 @@
 // console.log(myArray2)
 
 
-   ---5:47---
-const myArray = [1, true, "a"]
-console.log(myArray)
+//    ---5:47---
+// const myArray = [1, true, "a"]
+// console.log(myArray)
 
-console.log(myArray[0])
-console.log(myArray[1])
+// console.log(myArray[0])
+// console.log(myArray[1])
 
-console.log(myArray.length)
+// console.log(myArray.length)
+
+
+
