@@ -146,9 +146,9 @@
 // console.log(multByFactor(10, 2));
 // console.log(multByFactor(5));
 
-----5:40----
-const myArray = [1, 2, 3, 4, 5, 6, 7, 8]
-console.log(myArray)
+// ----5:40----
+// const myArray = [1, 2, 3, 4, 5, 6, 7, 8]
+// console.log(myArray)
 
-const myArray2 = new Array(1, 2, 3)
-console.log(myArray2)
+// const myArray2 = new Array(1, 2, 3)
+// console.log(myArray2)
