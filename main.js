@@ -204,9 +204,20 @@
 
 //----if, else, switch---6:35---
 
+// let val = 10
+
+// if (val > 5) {
+//     val += 20
+// }
+// console.log(val)
+
+//----if, else---6:43--
+
 let val = 10
 
-if (val > 5) {
+if (val < 5) {
     val += 20
+} else {
+    val -= 20
 }
 console.log(val)
