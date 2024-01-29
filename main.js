@@ -235,3 +235,18 @@
 // }
 
 
+const month = 12
+
+switch (month) {
+    case 12:
+        console.log("December")
+        break
+    case 1:
+        console.log("Jan")
+        break
+    case 2:
+        console.log("Feb")
+        break
+        default:
+            console.log("C'est n'a pas l'hiver")
+}
