@@ -170,5 +170,16 @@
 // myArray[1] = 2
 // console.log(myArray)
 
+//------PUSH--- 5:59----
 
+const myArray = [1, true, "a"]
+console.log(myArray)
 
+myArray.push(4)
+console.log(myArray)
+
+myArray.push(true)
+console.log(myArray)
+
+myArray.pop()
+console.log(myArray)
