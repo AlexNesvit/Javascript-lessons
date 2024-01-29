@@ -224,12 +224,14 @@
 
 //----if, else, if -----6:46
 
-const age = 7
+// const age = 7
 
-if (age >= 18) {
-    console.log("Is adult")
-}   else if (age>= 12){
-    console.log("Is teenager")
-}else {
-    console.log("Is child")
-}
+// if (age >= 18) {
+//     console.log("Is adult")
+// }   else if (age>= 12){
+//     console.log("Is teenager")
+// }else {
+//     console.log("Is child")
+// }
+
+
