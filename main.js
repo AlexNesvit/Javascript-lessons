@@ -163,5 +163,12 @@
 
 // console.log(myArray.length)
 
+const myArray = [1, true, "a"]
+console.log(myArray)
+console.log(myArray.length)
+
+myArray[1] = 2
+console.log(myArray)
+
 
 
