@@ -301,3 +301,10 @@
 //     .then(json => console.log(json))
 //     .catch((error) => console.error(error))
 
+//----ASYNC/AWAIT---10:23---
+
+const asyncsFn = async () => {
+    return "Succes!"
+}
+
+asyncsFn()
