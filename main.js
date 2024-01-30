@@ -303,8 +303,8 @@
 
 //----ASYNC/AWAIT---10:23---
 
-const asyncsFn = async () => {
-    return "Succes!"
-}
+// const asyncsFn = async () => {
+//     return "Succes!"
+// }
 
-asyncsFn()
+// asyncsFn()
