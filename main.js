@@ -289,4 +289,8 @@
 //     }
 // }
 
+ //----Promise----9:44----
 
+ const myPromise = new Promise((resolve, reject) => {
+
+ });
