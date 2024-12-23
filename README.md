@@ -944,6 +944,107 @@ Pour appeler (exécuter/invoquer) la fonction, tu dois écrire son nom suivi par
 
 ![function](/images/2024-12-23.png "function")
 
+Dans cet exemple, on a créé une fonction nommée `sayHello` qui accepte une donnée nommée `name` en paramètre.
+
+Tu peux assigner une valeur à un paramètre entre les parenthèses quand tu appelles la fonction.
+Tu dois différencier le paramètre (la variable `name`) et l'argument (la valeur `"Bob"`).
+
+Tu es libre de donner le nom que tu souhaites au paramètre : `name`, `firstName` ou quelque chose d'autre.
+
+Attention : Fais tout de même en sorte que ce nom soit suffisamment explicite pour que toi et les autres compreniez directement ce que représente la donnée.
+
+
+### Paramètre par défaut
+
+Tu peux définir des valeurs par défaut pour les paramètres de tes fonctions.
+
+De cette façon, si aucun argument n'est donné à la fonction lors de son appel, une valeur par défaut sera utilisée. C'est un bon moyen de se protéger des erreurs.
+```bash
+function sayHello(name = "World") {
+  console.log(`Hello, ${name}!`);
+}
+
+sayHello();
+// Hello, World!
+
+sayHello("Bob");
+// Hello, Bob!
+```
+
+
+### Return
+
+Tu viens de voir que les paramètres d'une fonction représentent ses entrées.
+Mais une fonction peut également produire une sortie qu'on appelle valeur de retour.
+```bash
+function sum(a, b){
+	return a + b;
+}
+console.log(sum(1, 2));
+```
+Dans ce code, on a créé une fonction pour calculer la somme de deux nombres.
+Cette dernière accepte en paramètres les nombres à additionner : `a` et `b`.
+La somme `a + b` est renvoyée à l'endroit où on a appelé la fonction grâce au mot-clé `return`.
+Maintenant, que se passe-t-il exactement à la ligne `4` ? On appelle la fonction `sum` avec les arguments `1` et `2`.
+Le code de la fonction est exécuté et renvoie la valeur `3` au code appelant à la ligne `4`.
+Une fois exécutée, l'interpréteur Javascript va substituer l'expression correspondante à l'appel de la fonction par sa valeur de retour une fois exécutée.
+À ce moment là, tout se passe donc comme si on avait `console.log(3)` au lieu de `console.log(sum(1, 2))`.
+
+Il n'est pas obligatoire de toujours spécifier une valeur de retour.
+
+Si rien n'est spécifié, la fonction renverra undefined par défaut.
+
+L'utilisation du mot-clé `"return"` stoppe immédiatement l'exécution de la fonction pour revenir au code appelant. Les lignes de code après un return ne seront donc jamais prises en compte.
+```bash
+function sum(a, b){
+  return a + b;
+  console.log(a + b); // This code will never be run
+}
+sum(1, 2);
+```
+
+### Portée (scope) / Contexte
+
+En Javascript, dès que l'on écrit du code, le contexte est très important.
+Tu ne peux pas utiliser une variable déclarée dans une fonction en dehors de cette fonction.
+```bash
+function sayMyName() {
+  const name = "Pierre"
+  console.log(name)
+  // works fine within the context of the function
+}
+
+function sayMyFullName() {
+  const lastName = 'Gerard'
+  console.log(lastName + ' ' + name)
+  // wont work: name is declared in an other function
+}
+
+console.log(lastName + ' ' + name)
+// wont work either: lastname and name only exists inside their functions
+```
+Par exemple, ici la variable `name` sera disponible uniquement dans le contexte de `sayMyName`, pas dans le contexte global.
+
+La fonction s'exécutera donc dans son propre contexte et aura son propre espace mémoire.
+
+Sachant tout cela, nous pouvons créer et appeler des fonctions dans nos projets, mais nous devons tenir compte du contexte.
+
+
+### Fonctions fléchées `=>`
+
+Les fonctions fléchées sont une autre façon de créer des fonctions. Voici à quoi ressemble la syntaxe :
+```bash
+const myFunction = (arg1, arg2) => {
+  // Code goes here
+};
+```
+
+
+---
+
+
+
+
 
 
 
