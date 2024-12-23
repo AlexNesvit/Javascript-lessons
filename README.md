@@ -107,3 +107,29 @@ console.log("Hello, world!");
 console.log("Hi, world!");
 ```
 
+### String
+
+Les strings en Javascript sont des chaînes de caractères. Elles doivent être entourées de guillemets (quotes 🇬🇧) (simple ou double)Les strings en Javascript sont des chaînes de caractères. Elles doivent être entourées de guillemets (quotes 🇬🇧) (simple ou double)
+```bash
+console.log("Hello, world");
+console.log('Hello, world');
+```
+
+### Console.log
+
+
+
+console.log est une fonction Javascript (on parlera un peu plus des fonctions dans un futur proche)
+
+Une fonction en Javascript est un bout de code réutilisable que l'on peut appeler pour effectuer certaines opérations.
+
+Le Javascript et le navigateur viennent avec tout un tas de fonctions intégrées, mais tu verras un peu plus tard que tu peux écrire tes propres fonctions.
+
+console.log est une de ces fonctions apportées par le navigateur à travers ce qu'on appelle les APIs web.
+Ces APIs web ne font pas partie des standards ECMAScript.
+
+Pour utiliser console.log, tu as juste besoin de mettre ton message entre les parenthèses. Et parce que ton message est un String, il doit être entre des guillemets.
+```bash
+console.log("your message")
+```
+
