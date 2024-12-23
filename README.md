@@ -211,5 +211,85 @@ Modulo (donne le reste d'une division euclidienne):
 // => 0
 ```
 
+### Opération logiques : comparaisons (booléen)
+
+Tu peux aussi utiliser Javascript pour comparer des valeurs.
+Javascript te donnera une réponse qui vaudra soit true, soit false (on appelle cela un booléen).
+
+Valeur égale et type égal
+Dans ce cas, on va regarder si les valeurs sont strictement égales.
+Cela signifie que les valeurs et types sont les mêmes:
+```bash
+1 === 1; // true ✅
+"Bob" === "Bob"; // true ✅
+"Bob" === "bob"; // false ❌
+1 === "1"; // false ❌
+```
+
+Valeur égale
+Dans ce cas, on regarde seulement si les valeurs sont égales:
+```bash
+1 == 1; // true ✅
+1 == "1"; // true ✅
+```
+
+Différentes valeurs
+Dans ce cas, on regarde si les valeurs sont différentes:
+```bash
+1 != 2; // true ✅
+1 != "1"; // false ❌
+```
+
+Valeur différente ou type différent
+
+Dans ce cas, nous vérifions si les valeurs ou le type sont différents:
+```bash
+1 !== "1" ;
+// true ✅
+
+1 !== 1 ;
+// faux ❌
+```
+
+Supérieur à, supérieur ou égal
+Ici, on vérifie que la valeur est supérieure à une autre
+en ajoutant le symbole d'égalité = juste après le >, on peut vérifier si la valeur est supérieure ou égale:
+```bash
+2 > 1; // true ✅
+2 >= 2; // true ✅
+```
+
+Ça fonctionne aussi dans l'autre sens avec le symbole inférieur <:
+```bash
+2 < 3; // true ✅
+2 <= 2; // true ✅
+```
+
+Parfois, ton IDE (Integrated development environment, comme VSCode) va automatiquement indenter ton code pour toi.
+Cela dit, il est essentiel de savoir formater son code correctement !
+Généralement, en JS, à chaque fois que tu ouvres des accolades (curly braces 🇬🇧), tu ajoutes une tabulation (ou deux espaces).
+```bash
+const person = {
+	name: "Bob", 
+	age: 30,
+	sayHello: function(){
+		console.log("Hello");
+	}
+}
+```
+
+### Résumé
+
+
+Tu peux écrire du Javascript dans une page HTML en utilisant les tags <script>
+
+Tu peux écrire des messages dans la console de ton navigateur en utilisant console.log
+
+Tu peux faire des calculs basiques et comparer deux éléments en JS.
+
+
+---
+
+
 
 
