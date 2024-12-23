@@ -453,6 +453,187 @@ Il y a trois façons de créer des variables en JS
 `let` quand la valeur peut changer et `const` pour les valeurs qui ne changent pas.
 
 
+---
+
+
+## JS Basics 04 - Les types de données
+
+### L'opérateur "`typeof`"
+
+En javascript, on peut utiliser un opérateur appelé "`typeof`" pour voir le type de données d'une valeur.
+Pour ce faire, on peut simplement écrire `typeof` suivi de la valeur que nous voulons vérifier.
+```bash
+typeof 1;
+```
+Tu verras apparaître résultat "`number`" car la valeur `1` est bien un nombre.
+
+### Deux catégories de types de données:
+
+En Javascript, il existe sept types de données différents. Ils sont classés en deux catégories :
+Primitifs et non-primitifs.
+
+### Les types primitifs
+
+Une valeur primitive est une valeur qui ne peut pas changer (on dit généralement que ces valeurs sont immutables, qu'elles ne peuvent pas muter).
+
+Pense aux nombres. Tu peux écrire un code comme celui-ci :
+```bash
+let a = 1;
+a = 2;
+```
+
+Dans ce code, tu modifies la valeur pointée par `a`. Mais tu n'as pas modifié la valeur `1`. Tu n'écrirais jamais quelque chose comme ça :
+`1 = 2;`
+Tu ne peux pas modifier la valeur `1` pour qu'elle devienne `2`. Le nombre `1` sera toujours le nombre `1`. C'est ce que nous entendons par immutable.
+
+Voici les types de données primitifs :
+
+Boolean:
+
+Les booléens sont utilisés pour représenter le vrai (`true`) ou le faux (`false`).
+```bash
+typeof true;
+// "boolean"
+```
+
+String
+
+Une "String" est une chaîne (suite) de caractères. Les chaînes sont toujours entourées de guillemets doubles (`""`) ou simples (`''`) .
+```bash
+typeof "Hello, World !";
+// "string"
+```
+
+Number
+
+Les nombres sont une représentation d'un nombre entier ou décimal.
+```bash
+typeof 1234;
+// "number"
+typeof 12.54;
+// "number"
+```
+
+Null
+
+La valeur `null` est utilisée pour représenter une absence intentionnelle de valeur.
+
+Si tu utilises typeof avec `null`, tu verras que le type de `null` est "object" ;
+
+C'est une erreur qui a été implémentée dans l'ECMAScript depuis le début et ne peut plus être corrigée de nos jours.
+```bash
+let empty = null;
+typeof empty;
+// "object"
+```
+
+Undefined
+
+`undefined` est la valeur par défaut d'une variable qui existe (car elle est déclarée) mais qui n'a pas encore de valeur (car elle n'a pas été initialisée/assignée).
+```bash
+let notDefined;
+typeof notDefined;
+// "undefined"
+```
+Important
+
+Il est important de comprendre que "undefined" ne s'applique qu'aux variables qui ont été créées, mais qui ne contiennent aucune valeur.
+
+Si tu essaies d'appeler une variable qui n'existe pas (qui n'a pas été déclarée), tu obtiendras une ReferenceError, ce qui n'est pas du tout la même chose.
+```bash
+let notDefined;
+typeof notDefined;
+// "undefined"
+
+typeof nothing;
+// ReferenceError: nothing is not defined
+```
+
+Comme tu peux le voir, même si le message d'erreur dit "`non défini`", ce qui peut prêter à confusion, ce n'est pas la même chose que undefined. ReferenceError est une erreur fatale ☠️ qui provoque l'arrêt de l'exécution du Javascript.
+
+
+### Types complexes (non-primitifs)
+
+Les valeurs non primitives sont des valeurs qui peuvent changer (on dit qu'elles sont mutables).
+
+Functions
+
+Une fonction est un bloc de code utilisé pour exécuter un ensemble d'instructions.
+
+On peut exécuter (on dit aussi appeler ou invoquer) une fonction en écrivant son nom suivi de parenthèses.
+
+`console.log("hello")`
+```bash
+typeof console.log;
+// "function"
+```
+
+L'opérateur `typeof` distingue les fonctions des objets. En fait, une fonction en Javascript peut être considérée comme un type particulier d'objet !
+
+
+
+Objects
+
+Nous parlerons davantage des objets. Pour le moment, saches que les objets sont en quelque sorte des "boîtes" qui peuvent contenir des clés associées à des valeurs, un peu comme dans un dictionnaire où on a des mots associés à des définitions.
+
+Ces paires "clé/valeur" sont entourés d'accolades pour délimiter l'objet décrit.
+
+Les valeurs contenues dans un objet peuvent être de n'importe quel type, cela peut même être des fonctions ! Une fonction contenue dans un objet sera appelée "méthode".
+```bash
+const person = {
+  name: "Bob", 
+  age: 25, 
+  sayHello: function(){
+    console.log("Hello");
+  }
+}
+
+person.sayHello();
+// "Hello"
+
+typeof person;
+// "object"
+```
+
+Array
+
+Les Arrays sont utilisés pour stocker plusieurs valeurs au sein d'une même variable.
+`const colors = ["Red", "Blue", "Yellow"];`
+
+Array n'est pas un type de donnée à proprement parler, c'est un "sous-type" (un cas particulier) du type Object.
+```bash
+typeof colors;
+// "object"
+```
+
+### Résumé:
+
+En Javascript, les types de données sont divisés en deux catégories : les types dits "primitifs" et les types "complexes" (non-primitifs) :
+
+Les types de données primitifs (immutables) :
+    Boolean
+    String
+    Number
+    Null
+    Undefined
+Les autres (mutables) :
+    Object
+    Function
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
