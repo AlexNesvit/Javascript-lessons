@@ -1044,6 +1044,299 @@ const myFunction = (arg1, arg2) => {
 
 
 
+## JS Basics 06bis - Fonctions d'ordre supérieur
+
+
+### Fonction Anonyme ?
+
+Nous pouvons créer des fonctions sans aucun label, on les appelle des fonctions anonymes.
+```bash
+function() {
+  console.log("I'm an anonymous function");
+}
+```
+
+Mais il n'est pas possible de l'utiliser de cette façon, car sans étiquette notre fonction est inutile et ne fonctionne pas..
+
+Tu n'es pas obligé de te souvenir de cette partie, mais nous avons deux options pour cela :
+
+Nous pourrions auto-invoquer la fonction:
+
+Tu peux lancer instantanément une fonction comme cela :
+```bash
+(function() {
+  console.log("I'm a self-invoking anonymous function");
+})();
+```
+
+Pour information, on appelle ça une IIFE (Immediately Invoked Function Expression).
+
+Une autre façon est de stocker votre fonction anonyme dans une variable:
+```bash
+const helloWorld = function() {
+  console.log("Hello, world!");
+};
+
+helloWorld();
+// Hello, World!
+```
+
+
+### Fonctions de rappel et fonctions d'ordre supérieur (Higher-Order Function)
+
+Une fonction d'ordre supérieur est une fonction qui accepte une autre fonction en argument ou qui retourne elle-même une fonction.
+
+Une fonction de rappel (callback) est une fonction passée en paramètre d'une autre fonction.
+
+Regardons un exemple concret. Suppose que dans une application on ait trois fonctions : une pour dire `"Hello"`, une pour dire `"Welcome"` et une qui demande son nom à l'utilisateur (avec `prompt`):
+ ```bash
+ function sayHello(userName) {
+  console.log(`Hello, ${userName}`);
+}
+
+function sayWelcome(userName) {
+  console.log(`Welcome, ${userName}`);
+}
+
+function askUserName() {
+  const name = prompt("Hey, what's your name?");
+}
+```
+Imagine que tu veux exécuter des fois `sayWelcome` et d'autres fois `sayHello` après avoir demandé son nom à l'utilisateur.
+
+Ce que nous pourrions faire : ajouter un `prompt` au début de `sayHello` et `sayWelcome`.
+```bash
+function sayHello() {
+  const userName = prompt("Hey, what's your name?");
+  console.log(`Hello, ${userName}`);
+}
+
+function sayWelcome() {
+  const userName = prompt("Hey, what's your name?");
+  console.log(`Welcome, ${userName}`);
+}
+```
+
+Mais, ce n'est pas très "D.R.Y.", n'est ce pas ?
+
+Une autre option serait d'accepter une fonction en paramètre pour la fonction `askUserName`. On qualifiera alors cette dernière de fonction d'ordre supérieur.
+De cette manière, quand on appellera `askUserName`, on pourra donner soit `sayHello` soit sayWelcome en argument (en tant que fonction de rappel).
+
+Concrètement, voilà ce que ça donne :
+```bash
+function sayHello(userName) {
+  console.log(`Hello, ${userName}`);
+}
+
+function sayWelcome(userName) {
+  console.log(`Welcome, ${userName}`);
+}
+
+function askUserName(callback) {
+  const name = prompt("Hey, what's your name?");
+  callback(name);
+}
+
+askUserName(sayWelcome);
+askUserName(sayHello);
+```
+
+Puisque `askUserName` accepte maintenant une fonction en argument, nous pouvons aussi écrire des fonctions anonymes (qui n'ont pas de nom associé) directement en place de l'argument.
+```bash
+askUserName(function(name) {
+  console.log(`Hey buddy, welcome ${name}`);
+});
+```
+
+### Avez-vous dit "retourner une function" ?
+
+Oui.
+```bash
+// Tableau initial
+const people = ['JoHn', 'ChrISTiana', 'anThoNY', 'MARia', 'jaMeS', 'MIChaEl', 'jeNNIFeR'];
+
+// Fonction pour corriger la casse d'un nom
+function changeName(name) {
+    if (typeof name !== "string") {
+        throw new Error("Le paramètre doit être une chaîne de caractères.");
+    }
+    // Met la première lettre en majuscule et le reste en minuscules
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
+// Fonction pour appliquer une transformation à tous les noms du tableau
+function changeAllNames(array, callback) {
+    if (!Array.isArray(array)) {
+        throw new Error("Le premier paramètre doit être un tableau.");
+    }
+    if (typeof callback !== "function") {
+        throw new Error("Le second paramètre doit être une fonction.");
+    }
+    // Transforme tous les noms en utilisant la fonction de rappel (callback)
+    return array.map(callback);
+}
+
+// Appel de la fonction changeAllNames avec changeName en rappel
+const correctedNames = changeAllNames(people, changeName);
+
+// Affichage du tableau transformé
+console.log(correctedNames);
+```
+Explications:
+
+1.	Fonction `changeName` :
+	•	Cette fonction prend un `nom` en paramètre.
+	•	Elle utilise `charAt(0).toUpperCase()` pour mettre la première lettre en majuscule.
+	•	Le reste des lettres est mis en minuscules avec `slice(1).toLowerCase()`.
+
+2.	Fonction `changeAllNames` :
+	•	Elle vérifie que le premier paramètre est un tableau et que le second est une fonction.
+	•	`Utilise array.map(callback)` pour appliquer la transformation sur chaque élément.
+
+3.	Appel de `changeAllNames` :
+	•	On lui passe le tableau people et la fonction changeName.
+
+
+---
+
+
+## JS Basics 07 - Les tableaux
+
+### Objectifs
+
+Créer des tableaux
+
+Déterminer la longueur d'un tableau (le nombre d'éléments qu'il contient)
+
+Lire et écrire des éléments d'un tableau
+
+Utiliser des méthodes basiques pour manipuler les tableaux
+
+### Un tableau est une structure de données utilisée pour regrouper plusieurs éléments en un seul endroit.
+
+Imaginons que nous voulions créer une application qui livre des fruits.
+
+Pour l'instant, sans tableau, nous devrions créer une variable pour chaque fruit.
+```bash
+const kiwi = "Kiwi";
+const apple = "Apple";
+const pineapple = "Pineapple";
+// ...
+```
+
+Cela peut être très long, n'est-ce pas ?
+
+Nous pourrions plutôt créer un tableau avec une liste de fruits :
+`const fruits = ["Kiwi", "Apple", "Pineapple"];`
+
+Pour créer un tableau, utilise les crochets `[]` et écris à l'intérieur les éléments que tu veux.
+Les éléments doivent être séparés par une virgule.
+
+Un tableau peut contenir tout type de données : nombre, booléen, chaîne de caractères, objet, fonction ou d'autres tableaux.
+`const myArray = ["Hello", 123, true, ["Hey", "Ho"]];`
+
+
+### Accéder à un élément du tableau
+
+Pour accéder à un élément du tableau, tape le nom du tableau et la position de l'élément auquel tu veux accéder entre les crochets.
+
+En JavaScript, la position (index) du premier élément est toujours 0.
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+
+console.log(fruits[0]); // will print "Kiwi"
+
+console.log(fruits[1]); // will print "Apple"
+
+console.log(fruits[2]); // will print "Pineapple'
+```
+
+Tu peux également définir la valeur d'un élément spécifique dans un tableau:
+```bash
+fruits[0] = "Banana";
+console.log(fruits[0]); // will print "Banana"
+```
+
+### Obtenir la longueur d'un tableau
+
+Pour obtenir le nombre d'items du tableau, nous pouvons utiliser `array.length`.
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+console.log(fruits.length); // will print 3
+```
+
+### Les méthodes des tableaux
+
+Comme nous l'avons appris dans les cours précédents, un tableau est un type spécifique d'objet, et en tant qu'objet, les tableaux sont accompagnés d'un tas de méthodes.
+
+Ces méthodes sont des fonctions que nous pouvons utiliser pour manipuler les tableaux.
+
+
+### Ajouter un élément à un tableau
+
+#### Push
+
+Prends notre exemple précédent avec le tableau de fruits.
+
+Imagine que nous voulions ajouter un nouveau fruit au tableau. Pour cela, nous utiliserions la méthode `push`.
+
+Il suffit d'exécuter la méthode `push` et de donner le nouvel élément en argument :
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+fruits.push("Banana");
+console.log(fruits);
+// ["Kiwi", "Apple", "Pineapple", "Banana"]
+```
+
+#### Unshift
+
+Si tu veux ajouter un élément au début du tableau, utilise la méthode `unshift`.
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+fruits.unshift('Strawberry');
+console.log(fruits);
+// ["Strawberry", "Kiwi", "Apple", "Pineapple"]
+```
+
+### Supprimer un élément du tableau
+
+#### Pop
+
+Pour supprimer le dernier élément d'un tableau, utilise la méthode `pop`.
+```bash
+fruits.pop();
+console.log(fruits);
+// [ "Kiwi", "Apple" ]
+```
+
+#### Shift
+
+Pour supprimer le premier élément, utilise `shift`.
+```bash
+fruits.shift();
+console.log(fruits);
+// [ "Apple" ]
+```
+
+## Résumé
+
+Un tableau est une liste de valeurs JavaScript regroupées en un seul endroit
+
+Tu peux accéder aux éléments d'un tableau en utilisant les crochets et un nombre indiquant la position de l'élément auquel tu souhaites accéder
+
+Attention, la numérotation des positions commence à 0 et non à 1 !
+
+Les tableaux sont dotés de méthodes que nous pouvons utiliser pour les manipuler
+
+
+
+
+
+
+
+
+
+
 
 
 
