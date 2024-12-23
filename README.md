@@ -21,7 +21,7 @@ Contenu
 Le projet est divisé en plusieurs modules :
 	1.	Introduction : Premiers pas avec JavaScript.
 	2.	Les bases : Variables, types de données, opérateurs.
-	3.	Structures de contrôle : If/else, boucles.
+	3.	Structures de contrôle : `If/else, boucles`.
 	4.	Fonctions : Définition et utilisation.
 	5.	Tableaux et Objets : Comprendre et manipuler les collections de données.
 	6.	Manipulation du DOM : Apporter du dynamisme aux pages web.
@@ -44,7 +44,7 @@ Tu peux utiliser JavaScript côté frontend et backend (grâce à NodeJS)
 
 ### Comment ajouter du JS dans une page web?
 
-La première chose dont tu as besoin est une page HTML. Ouvre ton IDE préféré et crée un nouveau document HTML. À la fin de ce document, juste avant de fermer le tag </body>, ajoutes un tag <script>
+La première chose dont tu as besoin est une page HTML. Ouvre ton IDE préféré et crée un nouveau document HTML. À la fin de ce document, juste avant de fermer le tag `</body>`, ajoutes un tag `<script>`.
 
 ```bash
 <!DOCTYPE html>
@@ -62,9 +62,9 @@ La première chose dont tu as besoin est une page HTML. Ouvre ton IDE préféré
   </body>
 </html>
 ```
-C'est à cet endroit précis, entre les deux <script> tags que l on va écrire notre code Javascript
+C'est à cet endroit précis, entre les deux `<script>` tags que l on va écrire notre code Javascript
 
-Commençons notre programme "Hello World":
+Commençons notre programme `"Hello World"`:
 ```bash
 <script>
    console.log("Hello, World!");
@@ -75,9 +75,9 @@ C'est normal, le message que tu as créé est uniquement visible dans la console
 
 ### Ajouter un fichier externe
 
-Comme avec CSS, il est recommandé d'écrire du Javascript dans un fichier .js séparé.
+Comme avec CSS, il est recommandé d'écrire du Javascript dans un fichier `.js` séparé.
 
-Crée un nouveau fichier appelé script.js. Tu peux utiliser le nom de ton choix, mais par convention les fichiers JavaScript sont appelés script.js, main.js ou index.js.
+Crée un nouveau fichier appelé `script.js`. Tu peux utiliser le nom de ton choix, mais par convention les fichiers JavaScript sont appelés `script.js`, `main.js` ou `index.js`.
 
 Ensuite, à l'intérieur de ce fichier , tu peux directement écrire du… Javascript ! (obviously 😏)
 ```bash
@@ -118,8 +118,7 @@ console.log('Hello, world');
 ### Console.log
 
 
-
-console.log est une fonction Javascript (on parlera un peu plus des fonctions dans un futur proche)
+`console.log` est une fonction Javascript (on parlera un peu plus des fonctions dans un futur proche)
 
 Une fonction en Javascript est un bout de code réutilisable que l'on peut appeler pour effectuer certaines opérations.
 
@@ -141,13 +140,13 @@ console.log est celui qu'on va utiliser le plus souvent, il affiche le message d
 
 Mais il y a aussi:
 
-    console.info ⇒ pour afficher des informations
-    console.error ⇒ pour afficher des erreurs
-    console.warn ⇒ pour afficher des avertissements
+    `console.info` ⇒ pour afficher des informations
+    `console.error` ⇒ pour afficher des erreurs
+    `console.warn` ⇒ pour afficher des avertissements
 
 ### Sensibilité à la casse
 
-Javascript est sensible à la casse. Écrire console.log et console.Log n'est pas la même chose !
+Javascript est sensible à la casse. Écrire `console.log` et `console.Log` n'est pas la même chose !
 Souviens-t'en pour éviter des erreurs bêtes 😏
 
 ### Écrire des commentaires
@@ -214,7 +213,7 @@ Modulo (donne le reste d'une division euclidienne):
 ### Opération logiques : comparaisons (booléen)
 
 Tu peux aussi utiliser Javascript pour comparer des valeurs.
-Javascript te donnera une réponse qui vaudra soit true, soit false (on appelle cela un booléen).
+Javascript te donnera une réponse qui vaudra soit true, soit false (on appelle cela un `booléen`).
 
 Valeur égale et type égal
 Dans ce cas, on va regarder si les valeurs sont strictement égales.
@@ -253,13 +252,13 @@ Dans ce cas, nous vérifions si les valeurs ou le type sont différents:
 
 Supérieur à, supérieur ou égal
 Ici, on vérifie que la valeur est supérieure à une autre
-en ajoutant le symbole d'égalité = juste après le >, on peut vérifier si la valeur est supérieure ou égale:
+en ajoutant le symbole d'égalité `=` juste après le `>`, on peut vérifier si la valeur est supérieure ou égale:
 ```bash
 2 > 1; // true ✅
 2 >= 2; // true ✅
 ```
 
-Ça fonctionne aussi dans l'autre sens avec le symbole inférieur <:
+Ça fonctionne aussi dans l'autre sens avec le symbole inférieur `<`:
 ```bash
 2 < 3; // true ✅
 2 <= 2; // true ✅
@@ -281,14 +280,181 @@ const person = {
 ### Résumé
 
 
-Tu peux écrire du Javascript dans une page HTML en utilisant les tags <script>
+Tu peux écrire du Javascript dans une page HTML en utilisant les tags `<script>`
 
-Tu peux écrire des messages dans la console de ton navigateur en utilisant console.log
+Tu peux écrire des messages dans la console de ton navigateur en utilisant `console.log`
 
 Tu peux faire des calculs basiques et comparer deux éléments en JS.
 
 
 ---
+
+
+## JS Basics 03 - Les variables
+
+### Objectifs
+
+
+Stocker des informations dans la mémoire de ton ordinateur en utilisant des variables.
+
+Comprendre les différents types de variables.
+
+
+### Une vaquoi ?
+
+Les variables permettent d'allouer un espace dans la mémoire vive, où on peut y stocker des données.
+Pour créer une variable, on va utiliser le mot-clé let, suivi du nom de la variable, puis du symbole = et enfin de la valeur que l'on souhaite lui assigner.
+
+```bash
+let myName = "Bob";
+console.log(myName);
+// Will print "Bob"
+```
+
+Dans cet exemple, on crée la variable `myName` et on lui assigne la valeur `"Bob"`.
+On peut assigner à une variable, n'importe quel type de donnée ! String, Number, Object, Array, Function, etc.
+```bash
+let userAge = 30;
+let fruits = ['apple', 'banana', 'kiwi'];
+let userCar = {
+  model: "BMW", 
+  year: "2000"
+};
+let sayMyName = function() {
+  console.log("My name is Bob!")
+};
+```
+
+### Nommer une variable
+
+En JavaScript (et dans n'importe quel langage de programmation..!), on va chercher à nommer nos variables de la façon la plus claire possible. Ça ne va pas casser ton code, mais souviens-toi on cherche à rendre notre code le plus lisible possible !
+```bash
+let a = "Bob"; // ❌ Bad !
+let myName = "Bob"; // ✅ Good !
+```
+
+Les noms de variables peuvent contenir des lettres majuscule/minuscule (attention à la casse), des nombres, et les caractères spéciaux `$` et `_`
+```bash
+Important
+
+Une variable peut commencer par n'importe quoi sauf un nombre!
+let 1apple; ❌ error
+let apple1; ✅ good
+```
+
+On ne peut pas utiliser d'espace dans le nom d'une variable. Du coup, si on veut symboliser le-dit espace, on va utiliser la syntaxe camelCase 🐪. (Il existe aussi la syntaxe snake_case 🐍, mais elle est très peu utilisée en JS)
+```bash
+let userName = "Bob"; 
+let userAge = 26;
+let isLoggedIn = false;
+```
+
+### Assigner une nouvelle valeur à une variable
+
+Il est possible de réassigner une nouvelle valeur à une variable après sa création.
+Par exemple, on peut réassigner à la variable myName une nouvelle valeur comme ceci:
+```bash
+let myName = "Bob";
+console.log(myName);
+// Will print "Bob"
+myName = "Paul";
+console.log(myName);
+// Will print "Paul"
+```
+`⚠️` Remarque bien que l'on ne réutilise pas le mot-clé `let`.
+
+`⚠️` Une variable n'est pas une valeur. C'est une étiquette pour accéder à une valeur. Aussi, la valeur (de type string) ne change pas elle-même. Ce qui change, c'est que la variable pointe vers une autre valeur (nouvellement créée).
+
+
+## Différents types de variables
+
+En JavaScript, il y a différents types de variables. Historiquement, il n'était possible de créer une variable qu'avec `var`. Mais depuis quelques années (on te laisse chercher depuis quand !), deux autres types de variables sont devenus les standards.
+Ils sont:
+
+`const`
+`let`
+
+Tu devrais considérer le mot-clé `var` comme obsolète et éviter de l'utiliser.
+
+
+### Let
+
+`let` représente une variable que l'on peut ré-assigner.
+```bash
+let myCity = "Paris";
+myCity = "Berlin";
+console.log(myCity);
+// Berlin
+```
+
+### Const
+
+`const` représente une variable que l'on ne peut pas ré-assigner.
+Tu dois l'utiliser dès que tu sais que la variable ne doit pas être réassignée.
+
+Préfères utiliser `const` si tu as un doute.
+```bash
+const myName = "Bob";
+myName = "John";
+// TypeError: Assignment to constant variable.
+```
+
+Quand on essaie de ré-assigner la valeur de `myName`, on obtient un `TypeError`!
+
+
+### Opérateurs d'incrément
+
+En JavaScript, tu peux utiliser différents opérateurs pour incrémenter une variable :
+
+l'opérateur d'incrément `++` pour augmenter la valeur de un : c'est un raccourci pour `+= 1` 👇
+
+l'opérateur d'incrément `+=` pour augmenter la valeur tout en assignant le résultat : `a += 1` est un raccourci pour `a = a + 1` 👇
+
+l'opérateur `+` est l'opérateur "normal" pour faire une addition : celui que tu connais depuis toujours. L'opérateur `+` ne fait "que" une addition : pour stocker le résultat dans une variable, tu dois utiliser l'opérateur `=` dans ton instruction.
+```bash
+let myBudget = 0;
+
+myBudget++;
+console.log(myBudget); // affiche 1
+
+myBudget += 2; 
+console.log(myBudget); // affiche 3
+
+myBudget = myBudget + 1;
+console.log(myBudget); // affiche 4
+
+myBudget--;
+console.log(myBudget); // affiche 3
+
+myBudget -= 2; 
+console.log(myBudget); // affiche 1
+
+myBudget = myBudget - 1;
+console.log(myBudget); // affiche 0
+```
+
+Il est aussi possible de concaténer (ajouter bout à bout) des chaînes de caractères.
+```bash
+let hello = "Hello";
+hello += ", World!";
+console.log(hello);
+//  "Hello, World!"
+```
+
+### Résumé
+
+
+En Javascript, on peut créer des variables qui pointent vers des valeurs.
+Il y a trois façons de créer des variables en JS
+    `let`
+    `const`
+    `var` (déprécié)
+
+`let` quand la valeur peut changer et `const` pour les valeurs qui ne changent pas.
+
+
+
+
 
 
 
