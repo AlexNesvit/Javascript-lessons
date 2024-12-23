@@ -624,6 +624,272 @@ Les autres (mutables) :
 ---
 
 
+## JS Basics 05 - Les instructions conditionnelles
+
+
+### Si...Sinon
+
+Pour écrire des conditions en Javascript, tu peux utiliser la structure "`if...else`".
+
+L'instruction `if` permet de vérifier une condition (précisée entre les parenthèses). Si la condition est évaluée comme vraie, le code est alors exécuté. Sinon, le code est ignoré.
+```bash
+if (condition) {
+  // Do something if the condition is true
+}
+```
+
+Nous pouvons ajouter une autre instruction, dans le cas où la condition est évaluée comme étant fausse.
+```bash
+else {
+  // Do something if the condition is false
+}
+```
+
+Voici un exemple concret :
+```bash
+const name = "Paul";
+
+if (name === "Paul") {
+  console.log("Welcome, Paul");
+} else {
+  console.log("Go away!");
+}
+```
+
+Dans cet exemple, on créé d'abord une variable `name` et on lui attribue la valeur "`Paul`".
+
+Ensuite, on compare la valeur assignée à cette variable avec la chaîne "`Paul`".
+Si le résultat est vrai, alors on affiche `"Welcome, Paul "` sinon on affiche `"Go away!"`.
+
+Attention, Javascript est sensible à la casse. Ce qui signifie que `"Paul"` n'est pas équivalent à `"paul"` !s
+
+
+### Prompt
+
+Pour rendre les exemples un peu plus interactifs, tu peux utiliser une fonction nommée `prompt`.
+
+`prompt` est une fonction qui va afficher une boite de dialogue permettant à l'utilisateur d'entrer du texte.
+
+`const userName = prompt("What's your name?");`
+
+
+### Utiliser prompt avec des nombres
+
+Lors de l'utilisation de `prompt`, ce que l'utilisateur va taper dans la fenêtre de l'invite sera considéré comme une chaîne de caractères.
+Si tu veux travailler avec des nombres, tu dois convertir la chaîne de caractères en un nombre. Pour cela, tu peux utiliser la fonction `parseInt`.
+```bash
+const age = prompt("How old are you?");
+console.log(typeof(age));
+// String
+
+const ageNumber = parseInt(age);
+console.log(typeof(ageNumber));
+// Number
+```
+
+
+### `Else if`
+
+Parfois, on peut avoir plus d'une condition. Par exemple, imagine que tu souhaites permettre à plusieurs personnes de jouer avec ton programme d'avant.
+
+Avec la structure `if...else` uniquement, cela va générer beaucoup d'instructions imbriquées les unes dans les autres.
+Tu vas heureusement pouvoir gérer des "embranchements" pour traiter plus de cas avec `else if` !
+
+Tu dois écrire `else if` après un `if` et avant un `else`, et tu dois utiliser une condition entre parenthèses.
+```bash
+else if (condition) {
+  // ...
+};
+
+const user = prompt("What's your name?");
+
+if(user === "Paul"){
+	console.log("Hello, Paul!");
+}
+else if(user === "John"){
+	console.log("Hello, John!");
+}
+else if(user === "Ringo"){
+	console.log("Hello, Ringo!");
+}
+else{
+	console.log("Sorry, not today...");
+}
+```
+
+On stocke la saisie de l'utilisateur dans une variable appelée `user`.
+Ensuite, on compare la valeur saisie avec `Paul` puis `John` pour voir si une d'entre elles correspond.
+
+On peut avoir autant de `else if` que l'on veut.
+Le dernier `else` correspondra toujours à tous les autres cas.
+
+
+### Les valeurs "truthy" et "falsy"
+
+
+Lorsque tu écris un bloc `if...else`, l'expression que tu écris entre parenthèses est évaluée et transformée en `booléen`.
+
+Par exemple, l'expression `4 === 4` est évaluée comme ("transformée" en) `true`. Si on place cette dernière dans les parenthèses d'un `if`, le code sous condition sera exécuté.
+
+Mais que se passe-t-il si tu mets autre chose qu'un `booléen` à l’intérieur d'une condition ?
+
+Par exemple :
+```bash
+if (1) {
+  console.log("What's going to happen here ? 🤷‍♀️");
+}
+```
+En fait, cela dépend de comment est évaluée la valeur dans un contexte `booléen` (dans une condition) :
+
+Certaines valeurs sont dites "truthy" : elle seront évaluées comme étant vraies (`true`).
+D'autres sont "falsy" et seront évaluées comme étant fausses (`false`).
+
+Les valeurs dites "falsy" :
+
+`false`
+`""`
+`0`
+`-0`
+`null`
+`undefined`
+`NaN`
+
+Toutes les autres valeurs sont "truthy" !
+
+Exemple :
+```bash
+let myName = "";
+if (myName) {
+  console.log("Hello you!");
+  // This will never be run because "empty string" is evaluated as false
+} else {
+  console.log("you don't have a name");
+}
+```
+Ici, puisque la variable `myName` est une chaîne vide , la condition est évaluée comme `false`.
+
+
+### Inversion logique
+
+L'opérateur `!` permet d'inverser un `booléen`. Ainsi, `!false` est égal à `true` et `!true` est égal à `false`. Cet opérateur permet d'obtenir l'opposé d'une valeur.
+Si on veut évaluer l'opposé logique d'une valeur, on peut utiliser le `!`.
+Par exemple, `!true` vaut `false` et `!false` vaut `true`.
+```bash
+let myName = "";
+
+if(myName === "Paul"){
+	console.log("Welcome, Paul :)");
+}
+else if(!myName){
+	console.log("myName is empty: change its value ;)");
+}
+else{
+	console.log("Go Away!");
+}
+```
+
+### ET / OU
+
+Dans une condition, on peut aussi déterminer la véracité d'une combinaison logique de plusieurs expressions en utilisant les mots-clés `&&` ("and") et `||` ("or").
+
+Exemple:
+```bash
+const userName = "Paul";
+const password = "secret";
+
+if(userName === "Paul" || userName === "Bob"){
+	console.log("Welcome!");
+}
+
+if(userName === "Paul" && password === "secret"){
+	console.log("Welcome!");
+}
+```
+Dans ce code, on vérifie uniquement le nom de l'utilisateur dans le premier `if`. S'il est égal à `Paul` OU `Bob`, le code est exécuté.
+
+Dans le deuxième `if`, on vérifie que le nom vaut `"Paul"` ET que le mot de passe vaut `"secret"`. Si les deux conditions sont remplies, le code est exécuté.
+
+Lorsque `&&` est utilisé, si un des deux booléens vaut `false`, tout sera évalué comme `false`.
+Lorsque `||` est utilisé, si un des deux booléens vaut `true`, tout sera évalué comme `true`.
+
+
+### Portée (scope) / Contexte
+
+En Javascript, dès que l'on écrit du code, le contexte est très important : on ne peut pas utiliser une variable déclarée à l'intérieur d'une condition en dehors de cette dernière.
+
+Les accolades `{ }` définissent un contexte local.
+
+Exemple :
+```bash
+const name = "Pierre";
+
+if (name === "Pierre") {
+  const city = "New York";
+
+  if (city === "New York") {
+    console.log("Welcome " + name + " in " + city);
+  } else {
+    console.log("Welcome " + name); 
+  }
+  // fonctionne correctement à l'intérieur du contexte de la condition
+} else {
+  console.log(name);
+  // tu verras le nom de la personne
+
+  console.log(city);
+  // tu verras une error 'reference error: city is not defined'
+}    
+```
+
+Par exemple, dans ce cas, la variable `city` sera disponible uniquement dans le contexte de la première condition `if` (à l'intérieur des accolades `{}`) et elle ne sera pas disponible dans le contexte du `else` (en dehors du contexte du `if`).
+
+La variable `name` est disponible dans toute la condition car elle a été créée en dehors du contexte du `if`.
+
+Si tu crées une variable à l'intérieur d'accolades `{}`, cette variable sera disponible uniquement à l'intérieur de ces accolades.
+
+Sachant cela maintenant, nous devrions être capables de créer des conditions qui fonctionnent pour nos projets en tenant compte du contexte.
+
+
+### Les ternaires
+
+Tu peux simplifier l'écriture d'une condition en utilisant l'opérateur ternaire.
+Cet opérateur utilise `?` et `:`, respectivement équivalents à `if` et `else`:
+`name === "Bob" ? console.log("Hello, Bob") : console.log("Go Away!");`
+Comme tu peux le voir, c'est une écriture plus courte. Elle peut paraître un peu étrange au début. Mais pense à `?` comme le point d’interrogation à la fin d'une question que tu souhaites poser au programme : est-ce que le nom vaut `Bob` ? Si oui, fais ci ! Sinon : fais ça.
+
+Ne t'en fais pas si cela n'est pas encore totalement clair pour le moment, nous y reviendrons ultérieurement. Essaie tout de même de te rappeler à quoi ressemble cet opérateur ternaire pour le reconnaitre si tu le rencontres.
+
+Une utilisation abusive ou non appropriée de l'opérateur ternaire peut rendre ton code moins lisible et compréhensible.
+Assure-toi que son utilisation est justifiée et que cela n'impacte pas la lisibilité de ton code.
+
+Rappelle toi que nous codons avant tout pour des être humains, et qu'il est important de penser à la personne qui lira ton code.
+
+
+## Résumé
+
+Les conditions sont indispensables en Javascript pour ajouter de la logique à nos programmes.
+
+On peut utiliser la structure `if...else` pour écrire ces dernières.
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
