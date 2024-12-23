@@ -926,6 +926,24 @@ L'opérateur ternaire `?`: permet de simplifier l'écriture des conditions `if..
 ---
 
 
+## JS Basics 06 - Les fonctions
+
+
+### Créer une fonction
+
+Pour déclarer une fonction, tu peux utiliser le mot clé `function` suivi du nom de la fonction.
+```bash
+function helloWorld (){
+  console.log("Hello,");
+  console.log("World!");
+}
+```
+
+Pour appeler (exécuter/invoquer) la fonction, tu dois écrire son nom suivi par des parenthèses :
+`helloWorld();`
+
+![function](/images/2024-12-23.png "function")
+
 
 
 
