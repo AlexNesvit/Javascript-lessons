@@ -72,3 +72,38 @@ Commençons notre programme "Hello World":
 ```
 Bien joué ! Tu as juste créé ton premier code Javascript! Si tu ouvres ton fichier index.html dans ton navigateur, tu ne dois rien voir de particulier.
 C'est normal, le message que tu as créé est uniquement visible dans la console du navigateur.
+
+### Ajouter un fichier externe
+
+Comme avec CSS, il est recommandé d'écrire du Javascript dans un fichier .js séparé.
+
+Crée un nouveau fichier appelé script.js. Tu peux utiliser le nom de ton choix, mais par convention les fichiers JavaScript sont appelés script.js, main.js ou index.js.
+
+Ensuite, à l'intérieur de ce fichier , tu peux directement écrire du… Javascript ! (obviously 😏)
+```bash
+console.log("Hello, World");
+```
+Une fois que cela est fait, ajoute l'attribut src (comme tu ferais pour une image) à ta balise script et donne lui le chemin de ton fichier JS.
+
+```bash
+<script src="script.js"></script>
+```
+### La console du navigateur
+
+Nos navigateurs web ont beaucoup d'outils tous plus fantastiques les uns que les autres, qui sont là pour nous aider à comprendre ce qui se passe dans nos applications.
+
+L'un d'eux est la console.
+La console va certainement être ton meilleur ami pour debugger tes programmes. C'est là où tu pourras voir les messages d'erreurs, les avertissements ou même des choses que tu essaies par toi même pour vérifier une hypothèse (par example : "je ne suis plus très sûr si "1" == 1 vaut true ou false" --> "je tape simplement cette expression dans la console de mon navigateur pour vérifier !")
+
+### Syntaxe de base
+
+Le code Javascript se termine avec un point-virgule (semi-colon 🇬🇧 )
+Le point-virgule indique la fin de la commande.
+
+Si tu oublies ce point-virgule, Javascript va automatiquement l'ajouter pour chaque retour à la ligne. C'est le mécanisme ASI (Automatic Semicolon Insertion). Mais il faut faire attention, en te fiant à ce mécanisme, tu peux rencontrer des erreurs qui seront alors difficile à repérer.
+
+```bash
+console.log("Hello, world!");
+console.log("Hi, world!");
+```
+
