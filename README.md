@@ -133,3 +133,83 @@ Pour utiliser console.log, tu as juste besoin de mettre ton message entre les pa
 console.log("your message")
 ```
 
+### Différents types de messages
+
+On peut écrire du Javascript directement dans la console du navigateur pour tester du code.
+Il y a différents types de message de console.
+console.log est celui qu'on va utiliser le plus souvent, il affiche le message de la manière la plus simple.
+
+Mais il y a aussi:
+
+    console.info ⇒ pour afficher des informations
+    console.error ⇒ pour afficher des erreurs
+    console.warn ⇒ pour afficher des avertissements
+
+### Sensibilité à la casse
+
+Javascript est sensible à la casse. Écrire console.log et console.Log n'est pas la même chose !
+Souviens-t'en pour éviter des erreurs bêtes 😏
+
+### Écrire des commentaires
+
+Une chose importante en développement est de documenter ton code.
+Documenter ton code va le rendre plus lisible pour toi, mais aussi pour les autres développeurs qui peuvent être amenés à travailler dessus.
+Une façon de documenter est d'écrire des commentaires.
+
+Les commentaires de code ne seront pas affichés dans la page; Ils sont là juste pour toi, te permettre de prendre quelques notes ou pour expliquer ton code aux autres.
+
+Commentaire simple ligne:
+```bash
+// This is a comment
+```
+Commentaire multiple lignes:
+```bash
+/* This comment
+is on multiple lines */
+```
+Commentaire pour documentation:
+```bash
+/**
+* This comment
+* is used for
+* documentation
+*/
+```
+
+### Opérations arithmétiques
+
+Javascript nous permet d'écrire des operations arithmétiques.
+Faisons un peu de maths avec Javascript (oui oui des maths !)
+
+Addition:
+```bash
+1 + 1
+// => 2
+```
+
+Soustraction:
+```bash
+2 - 2
+// => 0
+```
+
+Multiplication:
+```bash
+2 * 3
+// => 6
+```
+
+Division:
+```bash
+6 / 2
+// => 3
+```
+
+Modulo (donne le reste d'une division euclidienne):
+```bash
+6 % 2
+// => 0
+```
+
+
+
