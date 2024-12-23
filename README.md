@@ -875,6 +875,61 @@ On peut utiliser la structure `if...else` pour écrire ces dernières.
 ---
 
 
+## JS Basics 05bis - Les instructions conditionnelles - Variantes
+
+
+### 🔀 Switch
+
+On peut également utiliser la structure `switch...case` pour évaluer une condition. Voici un exemple :
+```bash
+let userCountry = prompt("Where are you from");
+
+switch(userCountry){
+	case "France":
+		console.log("Bonjour");
+		break;
+	case "England":
+		console.log("Hello");
+		break;
+	case "Germany":
+		console.log("Hallo");
+		break;
+	case "Italy":
+		console.log("Ciao");
+		break;
+	case "Spain":
+		console.log("Hola");
+		break;
+	default:
+		console.log("Hey there");
+		break;
+}
+```
+
+On vérifie le pays d'origine de l'utilisateur et, en fonction de ce dernier, on affiche un message spécifique. Dans les parenthèses du `switch`, on met la valeur à comparer (avec l'opérateur d'égalité stricte) avec différents `cas` (case) possibles.
+N'oublie surtout pas de rajouter des `break;` pour marquer la fin du traitement de tes différents `cas`, sinon tu risques d'avoir des surprises (essaie de les retirer dans l'exemple précédent pour voir !).
+
+Le mot clé `default` sert à spécifier quoi faire si aucun des cas n'est égal à la valeur testée.
+
+`"switch"` peut être utilisé uniquement si on souhaite tester l'égalité d'une seule valeur avec plusieurs autres valeurs pré-définies. Cette structure peut permettre de gagner un peu en lisibilité, mais elle est moins puissante que `"if...else if...else"`.
+
+En Javascript, on peut récupérer le jour courant en utilisant `new Date().getDay();`.
+
+
+### ☝️Résumé
+
+Tu peux utiliser un bloc `switch` quand tu as plusieurs cas dont on souhaite tester l'égalité avec une seule valeur.
+
+L'opérateur ternaire `?`: permet de simplifier l'écriture des conditions `if...else`.
+
+
+---
+
+
+
+
+
+
 
 
 
