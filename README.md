@@ -1482,6 +1482,40 @@ console.log(numbers.sort(function(a, b){
 ```
 
 
+---
+
+
+## JS Basics 08 - Les boucles
+
+
+### un des grands principes en développement est de ne pas se répéter (en anglais "D.R.Y.", comme Don't Repeat Yourself).
+
+Pour éviter d'écrire le même code encore et encore, nous pouvons utiliser quelque chose appelé boucle.
+
+### Qu'est-ce qu'une boucle ?
+
+Une boucle est un moyen d'exécuter le même code plusieurs fois jusqu'à ce qu'une certaine condition soit remplie.
+
+Par exemple, imagine une voiture sur une piste de course, la voiture doit faire x fois le tour de la piste avant d'atteindre la fin du parcours.
+
+Exemple d'une boucle:
+```bash
+for (let i = 0; i < 5; i++) {
+  console.log("Turn number " + i);
+}
+
+/*
+Turn number 0
+Turn number 1
+Turn number 2
+Turn number 3
+Turn number 4
+*/
+```
+
+### La boucle "for"
+
+![function](/images/boucle.png "function")
 
 
 
