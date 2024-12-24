@@ -1724,6 +1724,198 @@ La boucle fera autant de tours qu'il y a de propriétés énumérables dans l'ob
 ---
 
 
+## JS Basics 09 - Les objets
+
+
+### Que sont les objets ?
+
+Les objets en Javascript sont comme les objets qui t'entourent.
+
+Ce sont des sortes de conteneurs, qui contiennent des propriétés qui caractérisent l'objet.
+
+Par exemple, prenons une pomme.
+
+Une pomme a une couleur verte ("#00FF00"), un diamètre de 10cm, etc, etc.
+
+Essayons de décrire une pomme en JavaScript !
+```bash
+const apple = {
+  color: "#00FF00", 
+  diameter: 10,
+  isEaten: false,
+  vitamins: ["A", "B1", "B2", "B6", "C"], 
+  variety: { code: 576, name: "Granny Smith" },
+  gather: function () {
+    return "Here's one apple!";
+  }
+};
+```
+
+Les objets sont créés à l'aide d'accolades (🇬🇧 curly braces) : `{}`.
+
+A l'intérieur de l'objet, on peut créer des clés (ex : color) et associer à ces clés des valeurs en séparant clé et valeur par `:`.
+
+Chaque paire clé/valeur doit être séparée par une virgule.
+
+La valeur que tu mets peut être n'importe quel type de données JavaScript.
+
+Par exemple, comme une pomme peut être source de plusieurs vitamines, on a utilisé un tableau pour les représenter.
+
+Comme tu peux le voir, un objet peut être imbriqué dans autre objet ! Ici, notre pomme appartient à une variété représentée par un objet.
+
+Nous avons aussi donné à la pomme une fonction (appelée méthode) pour cueillir le fruit !
+
+
+### Accéder aux propriétés d'un objet
+
+Nous pouvons accéder à une propriété de l'objet en utilisant `.` ou `[]`.
+
+Par exemple, si nous voulons accéder a la propriété `color` de l'objet `apple`, il suffit d'écrire `apple.color` ou `apple['color']`.
+```bash
+apple.color;
+// "#00FF00"
+apple['color'];
+// "#00FF00"
+```
+
+```bash
+const apple = {
+    color: "#00FF00", 
+    diameter: 10,
+    isEaten: false,
+    vitamins: ["A","B1", "B2", "B6", "C"], 
+    variety: {code: 576, name: "Granny Smith"},
+    gather: function(){
+        return "Here's one apple!";
+    }
+}
+console.log(apple.color);
+console.log(apple['diameter']);
+console.log(apple.vitamins[2]);
+console.log(apple.variety.name);
+console.log(apple.gather());
+```
+
+La plupart du temps, tu utiliseras un point pour accéder à une propriété (`apple.color`), mais les crochets peuvent aussi être très utiles par exemple dans le cas où tu souhaites utiliser une variable pour accéder à une valeur.
+```bash
+const selectedProperty = prompt('Tape la propriété que tu veux afficher') ;
+console.log(apple[selectedProperty]) ;
+```
+
+### Ajouter ou modifier la propriété d'un objet
+
+Pour ajouter une propriété à un objet, il suffit de la définir comme ceci :
+`apple.growsOn = "Tree" ;`
+
+De même, pour donner une autre valeur à la propriété d'un objet, il suffit d'utiliser le symbole égal `=`.
+`apple.color = "Red" ;`
+
+```bash
+const apple = {
+	color: "#00FF00", 
+  diameter: 10,
+  isEaten: false,
+}
+
+apple.growsOn = "Tree";
+apple.color = "Red";
+console.log(apple);
+```
+
+### Supprimer une propriété
+
+On peut utiliser `delete` pour supprimer une propriété.
+`delete apple.name;`
+
+```bash
+const apple = {
+	color: "#00FF00", 
+  diameter: 10,
+  isEaten: false
+}
+
+delete apple.color;
+console.log(apple);
+```
+
+### Combiner des tableaux et des objets
+
+Et si nous pouvions combiner des tableaux avec des objets?
+
+Par exemple, nous avons beaucoup de fruits différents, pas seulement des pommes.
+Et si nous voulions décrire tous les fruits?
+
+Et bien, nous pourrions mettre nos objets dans un tableau !
+```bash
+const fruits = [
+  { name: "apple", color: "green" },
+  { name: "Pineapple", color:"yellow" },
+  { name: "Orange", color:"orange" },
+  { name: "Cherry", color:"red" },
+];
+```
+
+
+### What is `"this"` ?
+
+Le mot-clé `this` se réfère à l'objet courant sur lequel la méthode est appelée. Plus précisément, `this` désigne ce qui précède le `.` lors de l'appel d'une méthode.
+
+Voyons un exemple concret :
+```bash
+const person1 = {
+  name: "Bob", 
+  age: 30, 
+  sayHello: function () {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+};
+
+person1.sayHello();
+// Puisque "this" à la line 5 se réfère à ce qui précède le "." à la line 9 (person1),
+// "this.name" vaudra "Bob", donc la méthode affichera "Hi, I'm Bob"
+```
+
+
+
+Prends le temps de regarder le code et essaie de le comprendre.
+
+Ce qui se passe dans ce code, c'est que notre `pomme` a un état, `isEaten` qui est `false` par défaut.
+
+Lorsqu'on invoque la méthode `eat` on vérifie si le fruit a déjà été mangé, si oui, alors on affiche que le fruit a déjà été mangé, si non, on change la valeur de `isEaten` en `true`.
+
+Ne t'inquiète pas si cela n'est pas clair à 100% pour le moment, nous en parlerons plus tard.
+
+
+### En JavaScript, tous les objets sont uniques
+
+Les opérateurs d'égalité appliqués aux objets ne comparent pas ce qui se trouve à l'intérieur des objets, mais plutôt les endroits en mémoire où les objets sont stockés.
+
+Si tu prends deux objets, avec exactement les mêmes paires `clé/valeur`, ils ne seront jamais considérés comme `"égaux"` avec les opérateurs `===`, `!==`, `==` ou `!=`.
+```bash
+console.log({} === {});
+// false
+console.log({ name: "Billy", species:"Cat" } === { name: "Billy", species:"Cat" });
+// false
+console.log({ name: "Billy", species:"Cat" } == { name: "Billy", species:"Cat" });
+// false
+```
+
+A chaque fois que nous écrivons `{}` pour décrire un objet, l'interpréteur Javascript ira créer un nouvel objet en `mémoire**`, c'est pourquoi on peut dire qu'en JS, chaque objet est `"unique"`.
+
+
+### Résumé
+
+Un objet en JavaScript est un conteneur qui peut avoir un ensemble de paires `"clé/valeur"`
+
+Tu peux accéder à la propriété d'un objet en utilisant le point `.` ou les crochets `[]`.
+
+Tous les objets sont uniques, même s'ils ont les mêmes propriétés et méthodes
+
+Tu peux créer ou modifier une propriété en lui attribuant le symbole égal `=`.
+    `ex: apple.color = "red"`
+
+
+---
 
 
 
