@@ -1647,8 +1647,81 @@ Il y a différentes boucles, `"for"` est la plus utilisée mais il y a aussi `"w
 Faire des erreurs dans tes boucles peut entraîner une `boucle infinie` qui peut faire planter ton programme.
 
 
+---
 
 
+## JS Basics 08bis - Approfondissement des boucles
+
+
+### Boucle imbriquée
+
+Si tu as le cas où tu as un tableau à l'intérieur d'un autre tableau, nous pourrions avoir besoin d'une boucle imbriquée pour manipuler les éléments à l'intérieur de celui-ci.
+
+Voyons un exemple :
+`const animals = [["😺","🦁"], ["🐭","🐹"],["🐝","🐛"], ["🦅","🐦"]];`
+
+Dans cet exemple, si on veut imprimer les animaux un par un dans la console, une seule boucle ne sera pas suffisante :
+```bash
+const animals = [["😺","🦁"], ["🐭","🐹"],["🐝","🐛"], ["🦅","🐦"]];
+
+for(let i = 0; i < animals.length; i++){
+  console.log(animals[i]);
+}
+```
+
+Comme tu peux le voir dans cet exemple, nous ne voyons que les animaux regroupés deux par deux.
+
+Si nous voulons accéder à un élément d'un des sous-tableau, par exemple, la première souris `(🐭)`, nous devons écrire `animals[1][0]`.
+
+Nous devons donc avoir deux nombres sur lesquels itérer afin d'indiquer la position de l'élément souhaité :
+```bash
+for (let i = 0; i < animals.length; i++) {
+  for (let j = 0; j < animals[i].length; j++) {
+    console.log(animals[i][j]);
+  }
+}
+```
+
+On a ici deux noms différents pour les deux itérateurs : `i` et `j`. `i` sert à accéder aux sous-tableaux dans le tableau principal et `j` sert à accéder aux animaux dans ces sous-tableaux.
+```bash
+for (let i = 0; i < animals.length; i++) {
+
+  for (let j = 0; j < animals[i].length; j++) {
+
+    console.log(animals[i][j]);
+
+  }
+
+}
+```
+Comme tu peux le voir, la première boucle va exécuter le code de la deuxième boucle, jusqu'à ce que la deuxième boucle passe par tous les éléments (dans notre cas 2).
+Elle va donc exécuter à 4 fois deux `console.log`.
+
+Ce concept est un peu plus avancé, donc ne te sens pas mal si tu ne comprends pas 100% des boucles imbriquées, ce genre de concept peut prendre un certain temps avant d'être totalement assimilé.
+
+
+### For...in
+
+
+Pour faire une boucle à travers un objet, tu peux utiliser la boucle `for...in`.
+
+Dans ce cas, tu écriras une boucle `for` normale, mais au lieu d'ajouter tes conditions entre les parenthèses, tu mettras `let <property> in <object>`.
+```bash
+const apple = {
+  name: "Apple",
+  color: "Green",
+  shape: "Round",
+}
+
+for (let key in apple) {
+  console.log(`${key}: ${apple[key]}`);
+}
+```
+
+La boucle fera autant de tours qu'il y a de propriétés énumérables dans l'objet. A chaque itération la variable définie avant le mot-clé `in` contiendra un nom de propriété différent, que nous pouvons utiliser pour accéder à la valeur associée dans l'objet.
+
+
+---
 
 
 
