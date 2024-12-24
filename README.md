@@ -1329,6 +1329,158 @@ Attention, la numérotation des positions commence à 0 et non à 1 !
 Les tableaux sont dotés de méthodes que nous pouvons utiliser pour les manipuler
 
 
+---
+
+
+## JS Basics 07bis - Les tableaux - Autres méthodes utiles
+
+### Objectifs
+
+Découvrir les méthodes des tableaux :
+
+`includes` et `indexOf` pour déterminer l'existence ou l'emplacement d'une valeur dans un tableau.
+
+`join` et `split` pour transformer un tableau en chaine de caractères et vice-versa.
+
+`slice` pour extraire une partie d'un tableau.
+
+`concat` et `splice` pour ajouter/supprimer des elements.
+
+`reverse` et `sort` pour ré-ordonner les items.
+
+
+### Includes
+
+`includes` retourne `true` si l'argument correspond à un élément du tableau ou `false` sinon.
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+console.log(fruits.includes("Kiwi")); // true
+console.log(fruits.includes("Banana")); // false
+```
+
+### IndexOf
+
+`indexOf` retournera la position (l'index) du premier élément dans le tableau qui correspond à l'argument. Cette fonction retourne `-1` si et seulement si aucun élément ne correspond.
+```bash
+const fruits2 = ["Kiwi", "Apple", "Pineapple", "Kiwi"];
+//  							 0        1         2          3
+console.log(fruits2.indexOf("Kiwi"));
+// Will return 0 
+```
+
+### Join
+
+`join` transformera un tableau en chaine de caractères. Tu peux spécifier quel caractère utiliser en tant que séparateur :
+```bash
+const fruits = ["Kiwi", "Apple", "Pineapple"];
+const fruitsString = fruits.join();
+console.log(fruitsString);
+// Kiwi,Apple,Pineapple
+
+const fruitsString2 = fruits.join("-");
+console.log(fruitsString2);
+// Kiwi-Apple-Pineapple
+
+const fruitsString3 = fruits.join("*");
+console.log(fruitsString3);
+// Kiwi*Apple*Pineapple
+```
+
+### Split
+
+C'est un peu l'opération inverse de `join`. `split` part d'une chaine de caractères pour former un tableau. On donne en argument le caractère permettant de séparer les éléments.
+```bash
+const fruitsString = "Kiwi,Apple,Pineapple"
+const fruits = fruitsString.split(',');
+console.log(fruits);
+// [ 'Kiwi', 'Apple', 'Pineapple' ]
+```
+
+### Slice
+
+La méthode `slice` peut être utilisée pour créer une copie d'un tableau ou pour obtenir un sous-tableau. Cette méthode accepte deux paramètres optionnels permettant de délimiter la partie du tableau que l'on souhaite extraire. Par exemple :
+```bash
+const myArray = ["hello", true, "world", 42];
+console.log(myArray.slice());
+console.log(myArray.slice(1));
+console.log(myArray.slice(1, 3));
+console.log(myArray.slice(-1));
+```
+
+### Splice
+
+Attention à ne pas confondre avec la méthode `slice`. Et oui, à une lettre près, tu n'auras pas le même résultat !
+
+Cette méthode peut être utilisée pour supprimer et/ou insérer de nouveaux éléments à une position définie dans un tableau.
+
+Comme arguments splice prend, dans cet ordre :
+
+    L'index de l'élément à supprimer ou à remplacer (obligatoire)
+    Le nombre total d'élément(s) à supprimer ou remplacer (optionnel)
+    Le nouvel élément à insérer (optionnel)
+    Le deuxième nouvel élément à insérer après le premier (optionnel)
+    Tu peux en fait mettre un nombre infini d'éléments à insérer dans le tableau en renseignant d'autres arguments.
+```bash
+let arr = [1, 2, 3, 4]
+arr.splice(1)
+console.log(arr);
+arr = [1, 2, 3, 4];
+arr.splice(2, 1)
+console.log(arr);
+arr = [1, 2, 3, 4];
+arr.splice(1, 2)
+console.log(arr);
+arr = [1, 2, 3, 4];
+arr.splice(1, 2, "two", "three")
+console.log(arr);
+```
+
+### Concat
+
+`concat` fusionnera deux tableaux en un seul :
+```bash
+const fruits1 = ["Apple", "Strawberry"];
+const fruits2 = ["Banana", "Pineapple"];
+
+const mySmoothie = fruits1.concat(fruits2);
+console.log(mySmoothie);
+```
+
+### Reverse
+
+`reverse` mettra les premiers éléments en dernier et les derniers en premier.
+```bash
+const myArray = [1, 2, 3];
+myArray.reverse();
+console.log(myArray);
+```
+
+### Sort
+
+Si tu veux trier les éléments d'un tableau, tu peux utiliser la méthode `sort` :
+```bash
+const fruits2 = ["Kiwi", "Apple", "Pineapple", "Kiwi"];
+console.log(fruits2.sort());
+// ["Apple", "Kiwi", "Kiwi", "Pineapple"]
+```
+
+Avec des nombres, le résultat peut être un peu surprenant :
+```bash
+const numbers = [1, 20, 45, 2, 3, 5, 8];
+console.log(numbers.sort());
+// [1, 2, 20, 3, 45, 5, 8]
+```
+
+En effet, si tu appelle la méthode `sort` sans arguments, cette dernière va convertir en interne les éléments du tableau en chaine de caractère et faire un tri par ordre alphabétique. Si tu souhaites avec un tri dans l'ordre numérique, tu auras besoin de fournir un argument à `sort` : il s'agit d'une ``fonction de rappel` (`callback function`) qui indique comment les éléments doivent être ordonnés. Tu peux lire cette partie de la documentation pour plus d'informations.
+```bash
+const numbers = [1, 20, 45, 2, 3, 5, 8];
+console.log(numbers.sort(function(a, b){
+	return a - b;
+}));
+
+// [1, 2, 3, 5, 8, 20, 45]
+```
+
 
 
 
