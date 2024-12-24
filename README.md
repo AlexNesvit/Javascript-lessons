@@ -1517,13 +1517,134 @@ Turn number 4
 
 ![function](/images/boucle.png "function")
 
+`for` nécessite 3 paramètres pour fonctionner:
+
+    Le premier est une variable appelée itérateur, que nous devons créer et fixer à une valeur (ici nous voulons partir de zéro). Cette variable sera notre "compteur".
+    La seconde est la condition que nous voulons vérifier avant chaque tour de boucle (itération).
+    Et la troisième est l'incrément. L'incrément sera exécuté à la fin de chaque boucle et, généralement, nous ajoutons un à l'itérateur.
+
+Voici un exemple:
+```bash
+for (let i = 0; i < 5; i++) {
+  console.log("Turn number " + i);
+}
+```
+Dans cet exemple, nous créons d'abord la variable `i` qui est fixée à la valeur zero.
+`let i = 0`
+
+Par convention, nous appelons souvent cette variable "i" (signifie itérateur ou index)
+
+Ensuite, nous voulons que les instructions dans la boucle soient répétées tant qu'une certaine condition est vérifiée. Dans ce cas, nous voulons faire une boucle jusqu'à ce que la valeur de "i" atteigne 5 (donc cinq fois).
+`i < 5`
+
+Pour chaque tour de boucle, nous augmentons la valeur de `"i"` de un (afin que la boucle s'arrête à un moment donné).
+`i++`
+
+De cette façon, la boucle partira de `0`, et vérifiera à chaque tour si `"i"` est inférieur à `5`.
+
+Si `Oui` ⇒ Elle exécutera le code et augmentera la valeur de un. Et ensuite, on recommence.
+
+Si `Non` ⇒ la boucle s'arrête.
 
 
+### Parcourir un tableau
+
+Tu peux utiliser une boucle pour parcourir un tableau :
+```bash
+const fruits = ["Apple", "Peach", "Banana"];
+
+for (let i = 0; i < fruits.length; i ++) {
+  console.log(fruits[i]);
+}
+```
+Ici, tu peux voir que nous avons un tableau qui contient 3 éléments.
+
+Nous créons une boucle `for`, dont l'itérateur va de `0` à `fruits.length` `- 1` (soit 2, il faut bien comprendre que c'est l'opérateur < qui est utilisé ici, donc `i < fruits.length` retourne `false` quand `i` atteint `3` et la boucle s'arrête).
+
+Au premier tour, elle affichera fruits[0], puis fruits[1] et enfin fruits[2].
 
 
+### Les boucles "while" et "do...while"
+
+Nous avons vu la boucle `for`. Il existe d'autres façons de créer des boucles.
+
+### image
+While
+
+Pour utiliser une boucle `while`, tu dois créer l'itérateur avant la déclaration de la boucle.
+
+Passe la condition que tu veux remplir (c'est à dire `i < 5`) dans les parenthèses `()`.
+
+Avec une boucle `while et do...while`, il faut faire attention de ne pas oublier d'incrémenter (augmenter) la valeur de `i`.
+Sinon, cela pourrait provoquer une `boucle infinie`.
+Si `i` n'augmente pas, il n'atteint jamais `5`, donc la boucle continue et ton ordinateur peut planter.
+```bash
+let i = 0; 
+
+while (i < 5) {
+  console.log(`turn number ${i}`);
+  i++;
+}
+```
+
+### Do...While
+
+`do...while` est similaire à `while` mais l'action est exécutée avant de vérifier la condition (la boucle fait donc toujours au moins un tour).
+```bash
+let i = 0; 
+
+do{
+	console.log(`turn number ${i}`);
+	i++;
+}while (i < 5);
+```
+
+### Que faire en cas de boucle infinie ?
+
+Si tu as lancé une `boucle infinie` par erreur, ferme immédiatement l'onglet de ton navigateur pour y mettre fin.
+
+Tu peux également utiliser le gestionnaire de tâches chrome pour finir le processus ou utiliser le débogueur du navigateur.
 
 
+### Portée (scope) / Contexte
 
+En Javascript, dès que l'on écrit du code, le contexte est très important : on ne peut pas utiliser une variable déclarée à l'intérieur d'une boucle en dehors de cette dernière.
+
+Les accolades `{ }` définissent un contexte local.
+
+Exemple 1 :
+```bash
+let sum = 0;
+
+for (let i = 0; i < 10; i++) {
+  const name = "Pierre";
+  console.log(name + " saw " + sum + " StarWars movies.");
+  sum++;
+  // fonctionne correctement dans le contexte de la boucle
+}
+
+console.log(sum);
+// tu verras la valeur de sum
+   
+console.log(name);
+// tu verras une erreur 'reference error: name is not defined'
+```
+Par exemple, dans ce cas, la variable `name` sera disponible uniquement dans le contexte de la boucle (à l'intérieur des accolades `{}`) et elle ne sera pas disponible en dehors.
+
+La variable `sum` est disponible dans toute la boucle et en dehors, car elle a été créée en dehors du contexte de la boucle.
+
+Si tu crées une variable à l'intérieur d'accolades `{}`, cette variable sera disponible uniquement à l'intérieur de ces accolades.
+
+Sachant cela maintenant, nous devrions être capables de créer des boucles qui fonctionnent pour nos projets en tenant compte du contexte.
+
+
+### Résumé
+
+On peut utiliser des boucles en Javascript pour répéter l'exécution d'un bloc de code plusieurs fois
+
+Il y a différentes boucles, `"for"` est la plus utilisée mais il y a aussi `"while"` et `"do...while"`.
+
+Faire des erreurs dans tes boucles peut entraîner une `boucle infinie` qui peut faire planter ton programme.
 
 
 
