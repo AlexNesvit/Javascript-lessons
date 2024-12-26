@@ -67,7 +67,7 @@ C'est à cet endroit précis, entre les deux `<script>` tags que l on va écrire
 Commençons notre programme `"Hello World"`:
 ```bash
 <script>
-   console.log("Hello, World!");
+console.log("Hello, World!");
 </script>
 ```
 Bien joué ! Tu as juste créé ton premier code Javascript! Si tu ouvres ton fichier index.html dans ton navigateur, tu ne dois rien voir de particulier.
