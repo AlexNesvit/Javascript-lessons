@@ -1918,6 +1918,29 @@ Tu peux créer ou modifier une propriété en lui attribuant le symbole égal `=
 ---
 
 
+# JS Intermédiaire
+
+
+
+## JS Intermédiaire 01.1 - Introduction à la manipulation du DOM
+
+
+###  Qu'est-ce que le DOM?
+
+![function](/images/dom.png "function")
+
+DOM signifie Document Object Model. C'est une interface utilisée pour manipuler le contenu d'une page HTML.
+Lorsque ton navigateur analyse ton code HTML et CSS, il crée également une représentation du document sous la forme d'un objet Javascript.
+Nous utiliserons ce modèle pour manipuler notre page web.
+
+
+### 📰 L'Objet Document?
+
+Pour accéder à cet objet document, nous pouvons utiliser l'objet `document` fourni automatiquement par notre navigateur.
+
+Va dans ton navigateur web, ouvre une page Google et la console et regardons ce fameux "Document Object".
+`console.log(document);`
+
 
 
 
