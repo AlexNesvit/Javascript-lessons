@@ -1987,6 +1987,64 @@ La méthode collectera tous les éléments qui correspondent à ton sélecteur.
 La valeur retournée est de type HTMLCollection. C'est une structure de données qui ressemble aux tableaux. Tu peux utiliser les `[]` pour accéder à un élément par exemple : `allHeadings[0]`. Mais d'autres fonctionnalités des tableaux ne sont pas disponibles sur une `HTMLCollection`, comme les les méthodes `push` ou `pop`. Quand tu essaies de travailler sur une collection, vérifie dans la documentation que ce que tu veux faire existe bien.
 
 
+## JS Intermédiaire 01.2 - Manipulation du DOM - Créer des éléments
+
+### Créer un nouvel élément HTML
+
+Maintenant que tu sais comment obtenir un élément. Voyons comment nous pouvons créer un nouvel élément!
+
+Pour créer un élément, utilise la méthode `createElement` :
+`const newCatImage = document.createElement('img');`
+
+Dans ce cas, parce que nous voulons créer une image, nous devons donner une source à cette nouvelle image (et un texte alternatif pour des questions d'accessibilité):
+```bash
+newCatImage.src = "https://placecats.com/408/287";
+newCatImage.alt = "chat trop mignon";
+```
+
+Enfin, pour l'ajouter au `DOM`, nous pouvons utiliser la méthode `appendChild`.
+La méthode `appendChild` va ajouter l'élément passé à la fin de l'élément sur lequel tu utilises la méthode.
+
+Dans cet exemple, ceci ajoutera `newCatImage` à la fin de `document.body`:
+`document.body.appendChild(newCatImage);`
+
+Cette méthode est également disponible sur d'autres noeuds HTML, par exemple, tu peux l'utiliser pour ajouter un élément à une `<div>`.
+```bash
+const myDiv = document.querySelector('.myDiv');
+myDiv.appendChild(myElement);
+```
+
+### Changer la position d'un Élément du DOM
+
+Pour changer la position d'un élément, utilise `appendChild`.
+Passe l'élément que tu veux déplacer comme paramètre; cela ne créera pas de copie mais déplacera l'élément.
+`newDiv.appendChild(newCatImage);`
+
+
+### Supprimer un Élément du DOM
+
+Tu peux supprimer un élément du DOM en utilisant la propriété `remove`.
+`myElement.remove();`
+
+
+### Changer le style des éléments
+
+Il est possible de changer le style d'un élément HTML en utilisant la propriété `style`.
+Le nom de la propriété doit être écrit en utilisant le camel case (nous ne pouvons pas utiliser de - lors du nommage en Javascript).
+Exemple:
+```bash
+someDiv.style.backgroundColor = "lightblue";
+someText.style.fontSize = "20px";
+```
+
+### Ajouter/Supprimer une classe à un élément
+
+Il est aussi possible d'ajouter/supprimer une classe sur un élément.
+```bash
+element.classList.add('myClass');
+element.classList.remove('myClass');
+```
+Note que, dans ce cas, comme la nature de l'élément est spécifiée (classList), nous n'avons pas besoin d'utiliser le `.` avant le nom de la classe.
 
 
 
