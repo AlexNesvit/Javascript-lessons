@@ -1941,6 +1941,52 @@ Pour accéder à cet objet document, nous pouvons utiliser l'objet `document` fo
 Va dans ton navigateur web, ouvre une page Google et la console et regardons ce fameux "Document Object".
 `console.log(document);`
 
+Tu devrais voir `#document` dans la console. C'est notre objet document.
+
+![function](/images/doc.png "function")
+
+
+### 🎯 Sélectionner et modifier des éléments HTML
+
+Voyons comment sélectionner un élément du DOM. L'objet document est fourni avec une méthode appelée `querySelector`.
+La méthode `querySelector` fonctionne de la même manière qu'un sélecteur CSS. Entre parenthèses, il suffit d'écrire le sélecteur souhaité.
+```bash
+const someDivClass = document.querySelector('.my-div');
+const someImg = document.querySelector('.my-img');
+const someDivId = document.querySelector('#another-div');
+const someH1 = document.querySelector('.my-div h1');
+```
+Maintenant, nous avons accès à toutes les propriétés et méthodes pour cet élément spécifique.
+
+### InnerHTML
+
+La méthode innerHTML est utilisée pour modifier le contenu d'une balise HTML.
+```bash
+const title = document.querySelector('.title');
+title.innerHTML = "Hello, Bob!";
+```
+Dans cet exemple, nous sélectionnons le h1 avec la classe title, et nous changeons le contenu par Hello, Bob !
+
+### D'autres méthodes de sélection des éléments
+
+Tu peux également utiliser `document.getElementById` ou `document.getElementByTagName` pour sélectionner des éléments HTML, ils sont également pris en charge par les anciens navigateurs tels qu'Internet Explorer 6 - 7 (ce qui n'est pas le cas de querySelector).
+```bash
+const title = document.getElementById('title');
+const heading = document.getElementsByTagName('h1');
+```
+
+### Sélectionner plusieurs éléments qui ont la même classe/la même balise
+
+Si tu utilises `document.querySelector`, s'il y a plus d'un élément avec le même sélecteur dans le document (ex multiple `h1`), celui sélectionné par défaut sera la première occurrence.
+
+Si tu veux obtenir une liste avec plusieurs éléments, tu peux utiliser `document.querySelectorAll`.
+
+La méthode collectera tous les éléments qui correspondent à ton sélecteur.
+`const allHeadings = document.querySelectorAll('h1');`
+
+La valeur retournée est de type HTMLCollection. C'est une structure de données qui ressemble aux tableaux. Tu peux utiliser les `[]` pour accéder à un élément par exemple : `allHeadings[0]`. Mais d'autres fonctionnalités des tableaux ne sont pas disponibles sur une `HTMLCollection`, comme les les méthodes `push` ou `pop`. Quand tu essaies de travailler sur une collection, vérifie dans la documentation que ce que tu veux faire existe bien.
+
+
 
 
 
