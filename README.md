@@ -2166,6 +2166,36 @@ Nous pouvons utiliser `addEventListener` pour `écouter` les événements se pro
 Nous devons fournir une fonction de callback à `addEventListener`, cette fonction de callback accepte un paramètre `event` qui donne accès à un objet avec des méthodes et des propriétés utiles sur l'événement en cours.
 
 
+## JS Intermédiaire 02 - Tableaux : méthodes fonctionnelles
+
+### Map
+
+Imagine un tableau de nombres pour lequel tu souhaiterais multiplier tous les éléments par `2`, tout en gardant les nombres originaux. Pour le moment, tu sais le faire comme ceci :
+```bash
+const numbers = [1, 2, 5, 7];
+const doubles = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  const currentNumber = numbers[i];
+  doubles.push(currentNumber * 2);
+}
+
+console.log(doubles); // [2, 4, 10, 14]
+```
+Ca fonctionne, mais le fait de devoir écrire une boucle `for`, faire évoluer un index et pousser manuellement les éléments dans un tableau est un peu lourd. Heureusement, il y a un meilleur moyen !
+
+`map` est une méthode qu'on peut utiliser pour créer un nouveau tableau en allant transformer chaque élément grâce à une fonction de rappel (`callback`).
+```bash
+const numbers = [1, 2, 5, 7];
+
+const doubles = numbers.map(function (currentNumber) {
+  return currentNumber * 2;
+});
+
+console.log(doubles); // [2, 4, 10, 14]
+```
+`map` retourne un nouveau tableau qui a exactement la même taille que le tableau original, mais où les éléments auront été transformés. La fonction de rappel donnée en argument de `map` est appelée avec chaque élément du tableau original l'un après l'autre et la valeur de retour de ce callback sera la valeur de l'élément dans le nouveau tableau.
+
 
 
 
