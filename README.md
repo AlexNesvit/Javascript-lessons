@@ -2316,8 +2316,82 @@ console.log(myArray.reduce((acc, currentValue) => acc + currentValue, 100));
 Les tableaux ont de nombreuses méthodes que tu peux utiliser afin de les manipuler
 
 
+## JS Intermédiaire 03 - Affectation par décomposition
+
+## 🪓 Décomposer pour mieux régner
+
+### Objets
+
+Des fois, il peut être pratique de déclarer des variables pointant une propriété d'un objet, comme ceci :
+```bash
+const product = { name: "socks", price: 5, color: "red" };
+const name = product.name;
+const price = product.price;
+const color = product.color;
+
+console.log(`Those ${color} ${name} cost ${price} euros`);
+```
+La `décomposition` permet de raccourcir ce code :
+```bash
+const product = { name: "socks", price: 5, color: "red" };
+const { name, price, color } = product;
+
+console.log(`Those ${color} ${name} cost ${price} euros`);
+```
+Ici, on déclare des `variables` avec le même nom que les `clés de l'objet` sur lequel on vient extraire les informations.
 
 
+### Tableaux
+
+Ce code est bien trop verbeux :
+```bash
+const animals = ["Hubert", "Rosemary", "Paul"];
+const hamster = animals[0]; 
+const kiwi = animals[1]; 
+const guineaFowl = animals[2]; 
+
+console.log(hamster); // "Hubert"
+console.log(kiwi); // "Rosemary"
+console.log(guineaFowl); // "Paul"
+```
+Heureusement, la `décomposition` fonctionne également avec les `tableaux` ! Seule la syntaxe change :
+```bash
+const animals = ["Hubert", "Rosemary", "Paul"];
+const [hamster, kiwi, guineaFowl] = animals;
+
+console.log(hamster); // "Hubert"
+console.log(kiwi); // "Rosemary"
+console.log(guineaFowl); // "Paul"
+```
+La `déstructuration` de tableau crée automatiquement des `variables` qui correspondent à un ou plusieurs `éléments` d'un `tableau`.
+Dans cet exemple, tu peux voir que nous pouvons attribuer des `variables` (`labels`) spécifiques aux `valeurs` contenues dans les `tableaux`. le premier `label` entre les crochets désignera le premier `élément` du tableau, le deuxième désignera le second `élément` et ainsi de suite.
+
+### ☮️ syntaxe "`rest`"
+
+### Objets
+
+Un exemple vaut plus que 1000 mots:
+```bash
+const product = { name: "socks", price: 5, color: "red" };
+const { name, ...otherProperties } = product;
+
+console.log(name);
+console.log(otherProperties)
+```
+Comme tu peux le voir, l'opérateur `...` utilisé juste avant l'accolade fermante de la décomposition permet de désigner le reste des propriétés de l'objet.
+Autrement dit, le nom de variable suivant les `...` référencera un nouvel objet contenant les propriétés qui n'ont pas été citées dans les accolades de la décomposition.
+
+### Tableaux
+
+L'opérateur "`rest`" (`...`) peut aussi symboliser ce qu'il reste d'un `tableau`. Par exemple, nous pourrions créer deux `variables` et ensuite une troisième qui contiendrait le reste du `tableau` :
+```bash
+const animals = ["Hubert", "Rosemary", "Paul", "Pierre"];
+const [hamster, kiwi, ...others ] = animals;
+
+console.log(hamster); // "Hubert"
+console.log(kiwi); // "Rosemary"
+console.log(others); // ["Paul", "Pierre"];
+```
 
 
 
