@@ -2394,6 +2394,38 @@ console.log(others); // ["Paul", "Pierre"];
 ```
 
 
+## JS Intermédiaire 04 - "Fetcher" des données depuis une API
+
+### Introduction
+
+En anglais, la définition de Fetch est “Go for and then bring back (someone or something)”. (Va chercher et puis ramène). L’API Fetch est un outil nous permettant de récupérer des ressources extérieures grâce au réseau. Elle est aujourd’hui totalement intégrée à JavaScript avec la méthode globale `fetch()`.
+
+### L'API fetch
+
+Commençons par voir à quoi ressemble un `fetch()` :
+```bash
+fetch("https://www.wildcodeschool.com/")
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+  ```
+`fetch()` lance une requête `HTTP` sur le réseau et retourne une `Promise` qui sera résolue dès que la `Response` sera disponible. C'est en fait la version code de "je tape une adresse dans la barre d'URL de mon navigateur, et après un peu d'attente, j'obtiens la page demandée".
+
+`fetch()` peut prendre jusqu’à 2 paramètres :
+
+  Le premier est la ressource que l’on souhaite récupérer (très généralement, on indiquera l’URL de la ressource sous forme de chaîne de caractère). Attention ! Il est obligatoire.
+  Un second qui représente des options liées à notre requête. Il se caractérise sous la forme d’un objet et il est optionnel.
+
+Il suffit de lui donner l'adresse où récupérer les informations, d’attendre son retour et de lui dire ce que contiennent ces informations pour qu'il les transforme en données exploitables (`text, JSON, image, etc …`).
+```bash
+fetch("https://www.wildcodeschool.com/")
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(err => console.error(err))
+  ```
+
+
+
 
 
 
