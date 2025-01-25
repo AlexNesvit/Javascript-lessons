@@ -2196,6 +2196,17 @@ console.log(doubles); // [2, 4, 10, 14]
 ```
 `map` retourne un nouveau tableau qui a exactement la même taille que le tableau original, mais où les éléments auront été transformés. La fonction de rappel donnée en argument de `map` est appelée avec chaque élément du tableau original l'un après l'autre et la valeur de retour de ce callback sera la valeur de l'élément dans le nouveau tableau.
 
+### Map avec fonction fléchée
+
+Tu peux utiliser une fonction fléchée lorsque tu déclares ta fonction de rappel, voyons un exemple :
+```bash
+const numbers = [1, 56, 35, 23, 45];
+
+const halfNumbers = numbers.map(number => number / 2);
+
+console.log(halfNumbers);
+```
+
 
 
 
