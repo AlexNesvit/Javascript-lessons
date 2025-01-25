@@ -2207,6 +2207,49 @@ const halfNumbers = numbers.map(number => number / 2);
 console.log(halfNumbers);
 ```
 
+### ForEach
+
+Map n'est pas la seule méthode que tu peux utiliser sur les tableaux, une autre méthode utile est `forEach`.
+Comme son nom l'indique, `forEach` effectuera une action pour chaque élément du tableau.
+```bash
+const numbers = [1, 2, 5, 7];
+numbers.forEach((num) => console.log(num * 2));
+
+// 2
+// 4
+// 10
+// 14
+```
+
+Mais attends... C'est quoi la différence avec `map` ?!
+
+`map` va générer un nouveau tableau. `forEach` va juste faire une action pour chaque élément du tableau.
+```bash
+let sentences = animals.forEach(
+  (animal, index) => `${animal.name} the ${animal.species}, the number ${index}`
+);
+
+console.log(sentences); // undefined
+```
+Ici nous avons fait le même code que celui que nous avons utilisé pour `map` mais nous avons remplacé `map` par `forEach`.
+
+### Filter
+
+La méthode `filter` crée un nouveau tableau avec seulement les éléments qui vérifient une condition donnée.
+
+Ex : Nous voulons un nouveau tableau avec seulement les nombres qui sont supérieurs à `5`
+```bash
+const myArray = [3, 2, 40, 15, 20];
+const greaterThanFive = myArray.filter(number => number > 5);
+console.log(greaterThanFive);
+// [40, 15, 20]
+```
+Si et seulement si la valeur de retour du callback est `true`, l'élément sera copié dans le nouveau tableau.
+
+
+## JS Intermédiaire 02bis -Tableaux : d'autres méthodes fonctionnelles
+
+
 
 
 
